@@ -1,0 +1,115 @@
+ls
+repo
+cd 
+cd Projects/qcom8926/aliyunos/packages/apps/Contacts
+git status
+git branch
+git status
+adb 
+cd
+cd Projects/qcom8926/aliyunos/
+adb
+adb
+adb
+adb
+adb
+adb
+cd
+cd bin/android-sdks/sdk/platform-tools/
+ls
+pwd
+adb
+adb
+cd
+cd Projects/qcom8926/aliyunos/packages/apps/Contacts
+adb push bin/Contacts-qcom-8926.apk /system/app/Contacts.apk
+ls bin/Contacts-qcom-8926.apk 
+adb push bin/Contacts-qcom-8926.apk /system/app/Contacts.apk
+adb
+cd Projects/qcom8926/aliyunos/packages/apps/Contacts
+adb shell
+cd Projects/qcom8926/aliyunos/packages/apps/Contacts
+ls bin/Contacts-qcom-8926.apk 
+adb push bin/Contacts-qcom-8926.apk /system/app/Contacts.apk
+adb push bin/Contacts-qcom-8926.apk /system/app/Contacts.apk
+adb push bin/Contacts-qcom-8926.apk /system/app/Contacts.apk
+git status
+cd Projects/qcom8926/aliyunos/packages/apps/Contacts
+adb
+adb
+git
+git
+cd Projects/qcom8926/aliyunos/packages/apps/Contacts
+git status
+git difftool
+git commit -a
+repo upload .
+git status
+repo start cancel_export_to_sim .
+git branch
+git branch
+git checkout grou_button_size
+git status
+git branch
+git difftool
+git checkout src/com/yunos/alicontacts/sim/ExportSimContacts.java
+git status
+ls bin/
+adb push bin/Contacts-qcom-8926.apk /system/app/Contacts.apk
+adb push bin/Contacts-qcom-8926.apk /system/app/Contacts.apk
+git status
+git add .
+git commit --amend
+repo upload .
+cd
+cd Projects/
+ls
+ls
+cd nx/aliyunos/packages/apps/Contacts/
+git status
+repo start group_button_size .
+repo sync .
+repo sync .
+cd
+cd Projects/nx
+ls
+ls -al
+repo init -u ssh://liangchao.lc@10.125.224.47:29418/repo/codebase/mtk -b rel_cb2.7_nx_20140314
+repo  init -u ssh://liangchao.lc@gerrit2.alibaba-inc.com:29418/repo/yunos/rel_cb2.7_nx_20140314
+ls
+repo sync aliyunos/packages/apps/Contacts
+cd aliyunos/packages/apps/Contacts/
+repo start group_button_size .
+git fetch ssh://liangchao.lc@gerrit2.alibaba-inc.com:29418/git/yunos/Contacts refs/changes/28/50228/2 && git cherry-pick FETCH_HEAD
+git commit --amend
+repo upload .
+cd 
+cd Projects/
+mkdir contacts_828a
+cd contacts_828a/
+repo init -u ssh://liangchao.lc@gerrit2.alibaba-inc.com:29418/repo/codebase/mtk -b stable2.7_828a
+repo sync aliyunos/packages/apps/Contacts
+cd aliyunos/packages/apps/Contacts/
+repo start group_button_size .
+git fetch ssh://liangchao.lc@gerrit2.alibaba-inc.com:29418/git/yunos/Contacts refs/changes/28/50228/2 && git cherry-pick FETCH_HEAD
+git commit --amend
+repo upload .
+cd 
+cd Projects/
+ls
+cd bee/aliyunos/packages/apps/Contacts
+repo sync .
+git pull --rebase
+git status
+git branch
+repo start group_button_size .
+git fetch ssh://liangchao.lc@gerrit2.alibaba-inc.com:29418/git/yunos/Contacts refs/changes/28/50228/2 && git cherry-pick FETCH_HEAD
+git commit --amend
+repo upload .
+cd
+cd Projects/coolpad_5310/aliyunos/packages/apps/Contacts/
+repo start group_button_size .
+repo sync .
+git fetch ssh://liangchao.lc@gerrit2.alibaba-inc.com:29418/git/yunos/Contacts refs/changes/28/50228/2 && git cherry-pick FETCH_HEAD
+git commit --amend
+repo upload .
