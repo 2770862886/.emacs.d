@@ -81,6 +81,8 @@
 (require 'init-clojure)
 (require 'init-common-lisp)
 (require 'init-golang)
+(require 'init-cscope)
+(require 'init-ecb)
 
 (when *spell-check-support-enabled*
   (require 'init-spelling))

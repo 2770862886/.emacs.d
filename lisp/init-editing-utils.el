@@ -36,6 +36,11 @@
  indent-tab-mode nil
  tab-width 4)
 
+;; display line number in the left margin
+(global-linum-mode 1)
+;; display cursor position in the mode line
+(line-number-mode t)
+
 (when *is-a-mac*
   (setq-default locate-command "mdfind"))
 
