@@ -166,6 +166,11 @@
 ;; Backup key binding
 (global-set-key (kbd "C-x C-k") 'kill-region)
 (global-set-key (kbd "C-c C-k") 'kill-region)
+;; prompt to change the code system of current file
+(global-set-key (kbd "C-c k") 'revert-buffer-with-coding-system)
+;; change the text size
+(global-set-key (kbd "C-M-+") 'text-scale-increase)
+(global-set-key (kbd "C-M--") 'text-scale-decrease)
 
 (defun duplicate-region (beg end)
   "Insert a copy of the current region after the region."
