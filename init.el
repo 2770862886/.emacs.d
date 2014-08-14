@@ -136,6 +136,9 @@
             (message "init completed in %.2fms"
                      (sanityinc/time-subtract-millis after-init-time before-init-time))))
 
+(add-to-list 'custom-theme-load-path "~/.emacs.d/site-lisp/themes/")
+(load-theme 'arjen t)
+
 (provide 'init)
 
 ;; Local Variables:
