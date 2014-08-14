@@ -1,6 +1,6 @@
-(require-package 'xcscope)
-
-(setq cscope-do-not-update-database t)
+(require-package 'ascope)
+;(setq cscope-do-not-update-database t)
+(require 'ascope)
 
 ;; * Keybindings:
 ;;
@@ -30,8 +30,7 @@
 ;;      C-c s u         Pop mark.
 ;;
 ;; These pertain to setting and unsetting the variable,
-;; `cscope-initial-directory', (location searched for the cscope database
-;;  directory):
+;; `cscope-initial-directory', (location searched for the cscope database directory):
 ;;
 ;;      C-c s a         Set initial directory.
 ;;      C-c s A         Unset initial directory.
@@ -48,19 +47,6 @@
 ;;      C-c s T         Locate this buffer's cscope directory.
 ;;                      (alternate binding: "T" --> "tell").
 ;;      C-c s D         Dired this buffer's directory.
-
-;(define-key global-map [(control f3)]  'cscope-set-initial-directory)
-;(define-key global-map [(control f4)]  'cscope-unset-initial-directory)
-;(define-key global-map [(control f5)]  'cscope-find-this-symbol)
-;(define-key global-map [(control f6)]  'cscope-find-global-definition)
-;(define-key global-map [(control f7)]  'cscope-find-global-definition-no-prompting)
-;(define-key global-map [(control f8)]  'cscope-pop-mark)
-;(define-key global-map [(control f9)]  'cscope-next-symbol)
-;(define-key global-map [(control f10)] 'cscope-next-file)
-;(define-key global-map [(control f11)] 'cscope-prev-symbol)
-;(define-key global-map [(control f12)] 'cscope-prev-file)
-;(define-key global-map [(meta f9)]     'cscope-display-buffer)
-;(define-key global-map [(meta f10)]    'cscope-display-buffer-toggle)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ascope
@@ -87,7 +73,6 @@
 ;;ascope-prev-symbol this command is bind to key "p"
 ;;ascope-select-entry-other-window-delete-window this command is bind to key "enter"
 
-(require 'ascope)
 (global-set-key (kbd "C-c s l") 'ascope-init)
 (global-set-key (kbd "C-c s g") 'ascope-find-global-definition)
 (global-set-key (kbd "C-c s s") 'ascope-find-this-symbol)
