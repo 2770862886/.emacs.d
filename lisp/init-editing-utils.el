@@ -358,5 +358,16 @@ With arg N, insert N newlines."
 (guide-key-mode 1)
 (diminish 'guide-key-mode)
 
+;; make change within the el file functional
+(global-set-key (kbd "C-x e") 'eval-buffer)
+(global-set-key (kbd "C-c e") 'eval-buffer)
+;; prompt to change the code system of current buffer
+(global-set-key (kbd "C-c k") 'revert-buffer-with-coding-system)
+;; clear the white space in the buffer
+(global-set-key (kbd "C-c n") 'prelude-cleanup-buffer)
+;; scroll config
+(setq scroll-step 1
+      scroll-margin 3
+      scroll-conservatively 10000)
 
 (provide 'init-editing-utils)
