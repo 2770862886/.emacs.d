@@ -33,6 +33,7 @@
  truncate-lines nil
  truncate-partial-width-windows nil
  visible-bell t
+ auto-save-default nil
  indent-tab-mode nil
  tab-width 4)
 
