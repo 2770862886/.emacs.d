@@ -9,7 +9,7 @@
 ;;----------------------------------------------------------------------------
 
 (setq-default
- blink-cursor-delay 0
+ blink-cursor-delay 0.5
  blink-cursor-interval 0.4
  bookmark-default-file (expand-file-name ".bookmarks.el" user-emacs-directory)
  buffers-menu-max-size 30
