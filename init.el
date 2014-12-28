@@ -82,7 +82,8 @@
 (require 'init-common-lisp)
 (require 'init-golang)
 (require 'init-cscope)
-;(require 'init-ecb)
+(require 'init-ecb)
+(require 'init-ocaml)
 
 (when *spell-check-support-enabled*
   (require 'init-spelling))

@@ -15,9 +15,6 @@
 
 ;; TODO: find solution for php, haskell and other modes where TAB always does something
 
-(setq c-tab-always-indent nil
-      c-insert-tab-function 'indent-for-tab-command)
-
 ;; hook AC into completion-at-point
 (defun sanityinc/auto-complete-at-point ()
   (when (and (not (minibufferp))
@@ -37,11 +34,32 @@
 
 
 (set-default 'ac-sources
-             '(ac-source-imenu
+             '(ac-source-semantic
+               ac-source-yasnippet
+               ac-source-abbrev
+               ac-source-imenu
                ac-source-dictionary
                ac-source-words-in-buffer
                ac-source-words-in-same-mode-buffers
-               ac-source-words-in-all-buffer))
+               ac-source-words-in-all-buffer
+               ac-source-files-in-current-dir
+               ac-source-filename))
+
+;; yasnippet补全源的界面显示设置，这里颜色是红色的，用来与ac本身的补全相区分
+(defface ac-yasnippet-candidate-face
+  '((t (:background "DeepSkyBlue4" :foreground "grey80")))
+  "Face for yasnippet candidate.")
+
+(defface ac-yasnippet-selection-face
+  '((t (:background "coral3" :foreground "white")))
+  "Face for the yasnippet selected candidate.")
+
+(defvar ac-source-yasnippet
+  '((candidates . ac-yasnippet-candidate)
+    (action . yas/expand)
+    (candidate-face . ac-yasnippet-candidate-face)
+    (selection-face . ac-yasnippet-selection-face))
+  "Source for Yasnippet.")
 
 (dolist (mode '(magit-log-edit-mode
                 log-edit-mode org-mode text-mode haml-mode
@@ -51,15 +69,30 @@
                 lisp-mode textile-mode markdown-mode tuareg-mode
                 js3-mode css-mode less-css-mode sql-mode
                 sql-interactive-mode
-                inferior-emacs-lisp-mode))
+                inferior-emacs-lisp-mode
+                python-mode))
   (add-to-list 'ac-modes mode))
-
 
 ;; Exclude very large buffers from dabbrev
 (defun sanityinc/dabbrev-friend-buffer (other-buffer)
   (< (buffer-size other-buffer) (* 1 1024 1024)))
 
 (setq dabbrev-friend-buffer-function 'sanityinc/dabbrev-friend-buffer)
+
+;;----------------------------------------------------------------------------
+;; yassnippet
+;;----------------------------------------------------------------------------
+(require-package 'yasnippet)
+(yas-global-mode 1)
+
+(setq ac-trigger-commands
+      (cons 'backward-delete-char-untabify ac-trigger-commands))
+
+(setq ac-use-quick-help t)
+(setq ac-quick-help-delay 1.0)
+
+;; open ac-dwin
+(setq ac-dwim t)
 
 
 (provide 'init-auto-complete)
