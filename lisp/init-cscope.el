@@ -1,4 +1,3 @@
-(require-package 'ascope)
 ;(setq cscope-do-not-update-database t)
 (require 'ascope)
 

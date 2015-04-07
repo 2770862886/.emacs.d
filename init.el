@@ -34,7 +34,7 @@
 (require 'init-frame-hooks)
 ;(require 'init-xterm)
 (require 'init-eshell)
-(require 'init-themes)
+;(require 'init-themes)
 (require 'init-osx-keys)
 (require 'init-gui-frames)
 (require 'init-proxies)
@@ -78,11 +78,11 @@
 (require 'init-paredit)
 (require 'init-lisp)
 (require 'init-slime)
-(require 'init-clojure)
+;(require 'init-clojure)
 (require 'init-common-lisp)
 (require 'init-golang)
 (require 'init-cscope)
-(require 'init-ecb)
+;(require 'init-ecb)
 
 (when *spell-check-support-enabled*
   (require 'init-spelling))
@@ -136,8 +136,8 @@
             (message "init completed in %.2fms"
                      (sanityinc/time-subtract-millis after-init-time before-init-time))))
 
-;(add-to-list 'custom-theme-load-path "~/.emacs.d/site-lisp/themes/")
-;(load-theme 'arjen t)
+(add-to-list 'custom-theme-load-path "~/.emacs.d/site-lisp/themes/")
+(load-theme 'arjen t)
 
 (provide 'init)
 
