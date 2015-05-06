@@ -1,7 +1,7 @@
 
 (defun eshell-mode-hook-func ()
   "initialize eshell env path"
-  (let ((ANDROID_HOME "/home/liangchao/bin/android-sdks/sdk/"))
+  (let ((ANDROID_HOME "~/Android/Sdk/"))
   (setq eshell-path-env
         (concat (getenv "PATH") ":" (concat ANDROID_HOME "platform-tools/")))))
 

@@ -34,7 +34,7 @@
 (require 'init-frame-hooks)
 ;(require 'init-xterm)
 (require 'init-eshell)
-;(require 'init-themes)
+(require 'init-themes)
 (require 'init-osx-keys)
 (require 'init-gui-frames)
 (require 'init-proxies)
@@ -42,7 +42,7 @@
 (require 'init-isearch)
 (require 'init-uniquify)
 (require 'init-ibuffer)
-(require 'init-flycheck)
+;(require 'init-flycheck)
 
 (require 'init-recentf)
 (require 'init-ido)
@@ -70,7 +70,7 @@
 (require 'init-css)
 (require 'init-haml)
 (require 'init-python-mode)
-(require 'init-haskell)
+;(require 'init-haskell)
 (require 'init-ruby-mode)
 (require 'init-rails)
 (require 'init-sql)
@@ -99,6 +99,9 @@
 (require-package 'lua-mode)
 (require-package 'htmlize)
 (require-package 'dsvn)
+(require-package 'yasnippet)
+(yas-global-mode 1)
+
 (when *is-a-mac*
   (require-package 'osx-location))
 (require-package 'regex-tool)
