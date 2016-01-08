@@ -34,7 +34,7 @@
 (require 'init-frame-hooks)
 ;(require 'init-xterm)
 (require 'init-eshell)
-(require 'init-themes)
+;(require 'init-themes)
 (require 'init-osx-keys)
 (require 'init-gui-frames)
 (require 'init-proxies)
@@ -69,7 +69,7 @@
 (require 'init-nxml)
 (require 'init-css)
 (require 'init-haml)
-(require 'init-python-mode)
+;(require 'init-python-mode)
 ;(require 'init-haskell)
 (require 'init-ruby-mode)
 (require 'init-rails)
@@ -82,7 +82,7 @@
 (require 'init-common-lisp)
 (require 'init-golang)
 (require 'init-cscope)
-(require 'init-ecb)
+;(require 'init-ecb)
 (require 'init-ocaml)
 
 (when *spell-check-support-enabled*
