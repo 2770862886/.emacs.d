@@ -24,7 +24,6 @@
                                   unless (eq preferred-javascript-mode (cdr entry))
                                   collect entry)))
 
-
 ;; js2-mode
 (after-load 'js2-mode
   (add-hook 'js2-mode-hook '(lambda () (setq mode-name "JS2"))))
@@ -92,6 +91,5 @@
   (after-load 'skewer-mode
     (add-hook 'skewer-mode-hook
               (lambda () (inferior-js-keys-mode -1)))))
-
 
 (provide 'init-javascript)
