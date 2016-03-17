@@ -2,6 +2,7 @@
 /.emacs.desktop
 /auto-save-list
 /.session
+/session.*
 /custom.el
 *.elc
 CVS
@@ -28,4 +29,15 @@ site-lisp/package/
 /.bookmarks.el
 /history
 /helm-adaptive-history
+/thumbs/
+/emms/
+/.smex-items
+/image-dired/
 /eshell
+/.cask/
+/.sx/
+/org-clock-save.el
+/ditaa*.jar
+/ido.last
+/recentf
+/viper

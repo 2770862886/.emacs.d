@@ -1,8 +1,9 @@
-(setq py-install-directory "~/.emacs.d/site-lisp/python-mode/")
-(require 'python-mode)
+(setq auto-mode-alist
+      (append '(("SConstruct\\'" . python-mode)
+		("SConscript\\'" . python-mode))
+              auto-mode-alist))
 
-(setq py-shell-name "ipython")
+(require-package 'pip-requirements)
 
-(require 'pycomplete)
 
 (provide 'init-python-mode)
