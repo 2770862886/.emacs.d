@@ -1,4 +1,3 @@
-
 (deftheme arjen "The arjen transplant theme")
 
 (let ((class '((class color) (min-colors 0)))
@@ -34,7 +33,7 @@
       (arjen-blue-3     "#5c888b")
       (arjen-blue-4     "#4c7073")
       (arjen-blue-5     "#366060")
-	  (arjen-magenta    "#dc8cc3"))
+      (arjen-magenta    "#dc8cc3"))
 
   (custom-theme-set-faces
    'arjen
