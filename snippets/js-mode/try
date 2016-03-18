@@ -5,5 +5,5 @@
 try {
     $0
 } catch (e) {
-    logger.e();
+    logger.e("exception: " + e.toString());
 }
