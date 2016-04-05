@@ -339,4 +339,16 @@ With arg N, insert N newlines."
       scroll-margin 3
       scroll-conservatively 10000)
 
+;; #### Add hotkey for find and grep command
+;; by liangchao, 2016.4.5
+(global-set-key (kbd "C-c g") 'grep-find)
+(global-set-key (kbd "C-c f") 'find-name-dired)
+;; ####
+
+;; #### Activate neotree
+;; by liangchao, 2016.4.5
+(require-package 'neotree)
+(global-set-key [f8] 'neotree-toggle)
+;; ####
+
 (provide 'init-editing-utils)

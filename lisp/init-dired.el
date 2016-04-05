@@ -18,6 +18,20 @@
   (add-hook 'dired-mode-hook
             (lambda () (guide-key/add-local-guide-key-sequence "%"))))
 
+
+;; #### Activate dired-single
+;; by liangchao, 2016.4.5
+(require 'dired-single)
+(add-hook 'dired-mode-hook
+          (lambda ()
+            (define-key dired-mode-map (kbd "RET") 'dired-single-buffer)
+            (define-key dired-mode-map (kbd "<mouse-1>") 'dired-single-buffer-mouse)
+            (define-key dired-mode-map (kbd "^")
+              (lambda ()
+                (interactive)
+                (dired-single-buffer "..")))))
+;; ####
+
 (when (maybe-require-package 'diff-hl)
   (after-load 'dired
     (add-hook 'dired-mode-hook 'diff-hl-dired-mode)))
