@@ -112,6 +112,7 @@
 (require 'init-golang)
 (require 'init-cscope)
 (require 'init-ocaml)
+(require 'init-scheme)
 
 (when *spell-check-support-enabled*
   (require 'init-spelling))
