@@ -8,21 +8,16 @@
 ;;----------------------------------------------------------------------------
 ;; Some basic preferences
 ;;----------------------------------------------------------------------------
-
 (setq-default
- blink-cursor-delay 0.5
  blink-cursor-interval 0.4
  bookmark-default-file (expand-file-name ".bookmarks.el" user-emacs-directory)
  buffers-menu-max-size 30
  case-fold-search t
  column-number-mode t
- compilation-scroll-output t
  delete-selection-mode t
  ediff-split-window-function 'split-window-horizontally
  ediff-window-setup-function 'ediff-setup-windows-plain
- grep-highlight-matches t
- grep-scroll-output t
- line-spacing 0.2
+ indent-tabs-mode nil
  make-backup-files nil
  mouse-yank-at-point t
  save-interprogram-paste-before-kill t
@@ -32,9 +27,7 @@
  tooltip-delay 1.5
  truncate-lines nil
  truncate-partial-width-windows nil
- visible-bell t
  auto-save-default nil
- indent-tabs-mode nil
  c-basic-offset 4
  tab-width 4)
 
@@ -47,6 +40,16 @@
       auto-revert-verbose nil)
 
 (transient-mark-mode t)
+
+
+ ;;; A simple visible bell which works in all terminal types
+
+(defun sanityinc/flash-mode-line ()
+  (invert-face 'mode-line)
+  (run-with-timer 0.05 nil 'invert-face 'mode-line))
+
+(setq-default
+ ring-bell-function 'sanityinc/flash-mode-line)
 
 
 
@@ -67,6 +70,21 @@
   ;; https://github.com/purcell/emacs.d/issues/138
   (after-load 'subword
     (diminish 'subword-mode)))
+
+
+
+(when (maybe-require-package 'indent-guide)
+  (add-hook 'prog-mode-hook 'indent-guide-mode)
+  (after-load 'indent-guide
+    (diminish 'indent-guide-mode)))
+
+
+
+(require-package 'nlinum)
+
+
+(when (require-package 'rainbow-delimiters)
+  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
 
 
@@ -157,21 +175,19 @@
 (global-set-key (kbd "C-x C-.") 'pop-global-mark)
 
 (when (maybe-require-package 'avy)
-  (autoload 'avy-goto-word-or-subword-1 "avy")
   (global-set-key (kbd "C-;") 'avy-goto-word-or-subword-1))
 
-;; multiple-cursors
 (require-package 'multiple-cursors)
-
+;; multiple-cursors
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-+") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 ;; From active region to multiple cursors:
-(global-set-key (kbd "C-c c r") 'set-rectangular-region-anchor)
-(global-set-key (kbd "C-c c c") 'mc/edit-lines)
-(global-set-key (kbd "C-c c e") 'mc/edit-ends-of-lines)
-(global-set-key (kbd "C-c c a") 'mc/edit-beginnings-of-lines)
+(global-set-key (kbd "C-c m r") 'set-rectangular-region-anchor)
+(global-set-key (kbd "C-c m c") 'mc/edit-lines)
+(global-set-key (kbd "C-c m e") 'mc/edit-ends-of-lines)
+(global-set-key (kbd "C-c m a") 'mc/edit-beginnings-of-lines)
 
 ;; Change to key binding of Mark Region
 (global-unset-key (kbd "C-SPC"))
@@ -223,8 +239,8 @@
 (global-set-key [M-S-up] 'md/move-lines-up)
 (global-set-key [M-S-down] 'md/move-lines-down)
 
-(global-set-key (kbd "C-c p") 'md/duplicate-down)
-(global-set-key (kbd "C-c P") 'md/duplicate-up)
+(global-set-key (kbd "C-c d") 'md/duplicate-down)
+(global-set-key (kbd "C-c D") 'md/duplicate-up)
 
 ;;----------------------------------------------------------------------------
 ;; Fix backward-up-list to understand quotes, see http://bit.ly/h7mdIL
@@ -323,9 +339,11 @@ With arg N, insert N newlines."
 
 
 (require-package 'guide-key)
-(setq guide-key/guide-key-sequence '("C-x" "C-c" "C-x 4" "C-x 5" "C-c ;" "C-c ; f" "C-c ' f" "C-x n" "C-x C-r" "C-x r"))
-(guide-key-mode 1)
-(diminish 'guide-key-mode)
+(setq guide-key/guide-key-sequence '("C-x" "C-c" "C-x 4" "C-x 5" "C-c ;" "C-c ; f" "C-c ' f" "C-x n" "C-x C-r" "C-x r" "M-s" "C-h"))
+(add-hook 'after-init-hook
+          (lambda ()
+            (guide-key-mode 1)
+            (diminish 'guide-key-mode)))
 
 ;; make change within the el file functional
 (global-set-key (kbd "C-x e") 'eval-buffer)

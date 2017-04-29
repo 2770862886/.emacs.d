@@ -75,9 +75,8 @@
           (lambda ()
             (setq line-spacing 0)))
 
-;;--------------------------------------------------------------------------------
-;; Buffer move
-;;--------------------------------------------------------------------------------
-(require 'buffer-move)
+
+(require-package 'disable-mouse)
+
 
 (provide 'init-gui-frames)

@@ -1,32 +1,39 @@
 ;;----------------------------------------------------------------------------
 ;; yassnippet
 ;;----------------------------------------------------------------------------
+
 (require-package 'yasnippet)
-;; (yas-global-mode 1)
 
 ;; open ac-dwin
 ;; (setq ac-dwim t)
 
 (setq yas-snippet-dirs
       '(yas-installed-snippets-dir      ;; the default collection
-        "~/.emacs.d/snippets"           ;; personal snippets
-        ))
+        "~/.emacs.d/snippets"))         ;; personal snippets
 
 (yas-global-mode 1)
 
-(defface ac-yasnippet-candidate-face
-  '((t (:background "sandybrown" :foreground "black")))
-  "Face for yasnippet candidate.")
+(require 'popup)
 
-(defface ac-yasnippet-selection-face
-  '((t (:background "coral3" :foreground "white")))
-  "Face for the yasnippet selected candidate.")
+(define-key popup-menu-keymap (kbd "M-n") 'popup-next)
+(define-key popup-menu-keymap (kbd "M-p") 'popup-previous)
 
-(defvar ac-source-yasnippet
-  '((candidates . ac-yasnippet-candidate)
-    (action . yas/expand)
-    (candidate-face . ac-yasnippet-candidate-face)
-    (selection-face . ac-yasnippet-selection-face))
-  "Source for Yasnippet.")
+(defun yas-popup-isearch-prompt (prompt choices &optional display-fn)
+  (when (featurep 'popup)
+    (popup-menu*
+     (mapcar
+      (lambda (choice)
+        (popup-make-item
+         (or (and display-fn (funcall display-fn choice))
+             choice)
+         :value choice))
+      choices)
+     :prompt prompt
+     ;; start isearch mode immediately
+     :isearch t
+     )))
+
+(setq yas-prompt-functions '(yas-popup-isearch-prompt yas-ido-prompt yas-no-prompt))
 
 (provide 'init-yasnippet)
+;;; init-yasnippet ends here
