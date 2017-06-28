@@ -1,11 +1,11 @@
-;;; buffer-move.el --- Swap buffers without typing C-x b on each window
+;;; buffer-move.el --- 
 
-;; Copyright (C) 2004  Lucas Bonnet <lukhas@free.fr>
+;; Copyright (C) 2004-2014  Lucas Bonnet <lucas@rincevent.net.fr>
 
 ;; Author: Lucas Bonnet <lucas@rincevent.net>
 ;; Keywords: lisp,convenience
-;; Version: 0.4
-;; URL : http://lukhas.free. fr/emacs/elisp/buffer-move.el
+;; Version: 0.5
+;; URL : https://github.com/lukhas/buffer-move
 
 ;; This program is free software; you can redistribute it and/or
 ;; modify it under the terms of the GNU General Public License
@@ -55,17 +55,16 @@
 ;; To use it, simply put a (require 'buffer-move) in your ~/.emacs and
 ;; define some keybindings. For example, i use :
 
-(global-set-key (kbd "<C-S-up>")     'buf-move-up)
-(global-set-key (kbd "<C-S-down>")   'buf-move-down)
-(global-set-key (kbd "<C-S-left>")   'buf-move-left)
-(global-set-key (kbd "<C-S-right>")  'buf-move-right)
+;; (global-set-key (kbd "<C-S-up>")     'buf-move-up)
+;; (global-set-key (kbd "<C-S-down>")   'buf-move-down)
+;; (global-set-key (kbd "<C-S-left>")   'buf-move-left)
+;; (global-set-key (kbd "<C-S-right>")  'buf-move-right)
 
 
 ;;; Code:
 
 
 (require 'windmove)
-
 
 ;;;###autoload
 (defun buf-move-up ()
@@ -120,12 +119,12 @@ one, an error is signaled."
 
 ;;;###autoload
 (defun buf-move-right ()
-"Swap the current buffer and the buffer on the right of the split.
+  "Swap the current buffer and the buffer on the right of the split.
 If there is no split, ie now window on the right of the current
 one, an error is signaled."
   (interactive)
   (let* ((other-win (windmove-find-other-window 'right))
-	 (buf-this-buf (window-buffer (selected-window))))
+         (buf-this-buf (window-buffer (selected-window))))
     (if (null other-win)
         (error "No right split")
       ;; swap top with this one
@@ -133,7 +132,6 @@ one, an error is signaled."
       ;; move this one to top
       (set-window-buffer other-win buf-this-buf)
       (select-window other-win))))
-
 
 (provide 'buffer-move)
 ;;; buffer-move.el ends here
