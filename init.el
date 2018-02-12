@@ -43,17 +43,17 @@
 ;;----------------------------------------------------------------------------
 
 (require-package 'wgrep)
-(require-package 'project-local-variables)
+;; (require-package 'project-local-variables)
 (require-package 'diminish)
 (require-package 'scratch)
 (require-package 'command-log-mode)
 
 (require 'init-frame-hooks)
 (require 'init-xterm)
-;; (require 'init-themes)
+(require 'init-themes)
 (require 'init-osx-keys)
 (require 'init-gui-frames)
-(require 'init-dired)
+;;(require 'init-dired)
 (require 'init-isearch)
 (require 'init-grep)
 (require 'init-uniquify)
@@ -79,17 +79,19 @@
 (require 'init-git)
 (require 'init-github)
 
+(require 'init-projectile)
+
 (require 'init-compile)
-(require 'init-crontab)
+;;(require 'init-crontab)
 (require 'init-textile)
 (require 'init-markdown)
-(require 'init-csv)
+;;(require 'init-csv)
 (require 'init-erlang)
 (require 'init-javascript)
 (require 'init-php)
 (require 'init-org)
-(require 'init-nxml)
-(require 'init-html)
+;;(require 'init-nxml)
+;;(require 'init-html)
 (require 'init-css)
 (require 'init-haml)
 (require 'init-python-mode)
@@ -108,8 +110,6 @@
   (require 'init-clojure-cider))
 (require 'init-common-lisp)
 
-(require 'init-scheme)
-
 (when *spell-check-support-enabled*
   (require 'init-spelling))
 
@@ -119,9 +119,6 @@
 (require 'init-dash)
 (require 'init-ledger)
 ;; Extra packages which don't require any configuration
-
-;; should load yasnippet before auto-complete
-(require 'init-yasnippet)
 
 (require-package 'gnuplot)
 (require-package 'lua-mode)

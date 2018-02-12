@@ -44,4 +44,21 @@ source file under ~/.emacs.d/site-lisp/name/"
     (and f (string-prefix-p (file-name-as-directory (site-lisp-dir-for name)) f))))
 
 
+;;; #### config site-lisp packages
+;;; by liangchao, 2018.2.12
+(require 'window-numbering)
+(require 'dired-single)
+(require 'recent-jump)
+(setq recent-jump-threshold 4)
+(setq recent-jump-ring-length 10)
+(global-set-key (kbd "<M-left>") 'recent-jump-jump-backward)
+(global-set-key (kbd "<M-right>") 'recent-jump-jump-forward)
+(require 'buffer-move)
+(global-set-key (kbd "<C-S-up>") 'buf-move-up)
+(global-set-key (kbd "<C-S-down>") 'buf-move-down)
+(global-set-key (kbd "<C-S-left>") 'buf-move-left)
+(global-set-key (kbd "<C-S-right>") 'buf-move-right)
+;;; ####################################
+
 (provide 'init-site-lisp)
+;;; init-site-lisp.el ends here

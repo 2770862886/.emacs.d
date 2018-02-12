@@ -106,5 +106,4 @@
     (add-hook 'skewer-mode-hook
               (lambda () (inferior-js-keys-mode -1)))))
 
-
 (provide 'init-javascript)
