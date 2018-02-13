@@ -15,7 +15,7 @@
 (sanityinc/add-subdirs-to-load-path
  (expand-file-name "site-lisp/" user-emacs-directory))
 
-;;; Utilities for grabbing upstream libs
+;;; Utilities for grabbing upstream libs
 
 (defun site-lisp-dir-for (name)
   (expand-file-name (format "site-lisp/%s" name) user-emacs-directory))
@@ -51,13 +51,14 @@ source file under ~/.emacs.d/site-lisp/name/"
 (require 'recent-jump)
 (setq recent-jump-threshold 4)
 (setq recent-jump-ring-length 10)
-(global-set-key (kbd "<M-left>") 'recent-jump-jump-backward)
-(global-set-key (kbd "<M-right>") 'recent-jump-jump-forward)
+(global-set-key (kbd "M-<left>") 'recent-jump-jump-backward)
+(global-set-key (kbd "M-<right>") 'recent-jump-jump-forward)
 (require 'buffer-move)
 (global-set-key (kbd "<C-S-up>") 'buf-move-up)
 (global-set-key (kbd "<C-S-down>") 'buf-move-down)
 (global-set-key (kbd "<C-S-left>") 'buf-move-left)
 (global-set-key (kbd "<C-S-right>") 'buf-move-right)
+;;; (require-package 'ace-jump-mode)
 ;;; ####################################
 
 (provide 'init-site-lisp)

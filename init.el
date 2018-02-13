@@ -57,7 +57,7 @@
 (require 'init-isearch)
 (require 'init-grep)
 (require 'init-uniquify)
-(require 'init-ibuffer)
+;;(require 'init-ibuffer)
 (require 'init-flycheck)
 
 (require 'init-recentf)
@@ -118,14 +118,16 @@
 (require 'init-folding)
 (require 'init-dash)
 (require 'init-ledger)
+
+;; add extra package initialization
+(require 'init-helm)
+
 ;; Extra packages which don't require any configuration
 
 (require-package 'gnuplot)
 (require-package 'lua-mode)
 (require-package 'htmlize)
 (require-package 'dsvn)
-;;(require-package 'yasnippet)
-;;(yas-global-mode 1)
 
 (when *is-a-mac*
   (require-package 'osx-location))
@@ -167,4 +169,4 @@
 ;; Local Variables:
 ;; coding: utf-8
 ;; no-byte-compile: t
-;; End:
+;;; init.el ends here

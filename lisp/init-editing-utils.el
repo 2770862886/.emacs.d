@@ -115,9 +115,12 @@
 
 
 
-(require-package 'browse-kill-ring)
-(setq browse-kill-ring-separator "\f")
-(global-set-key (kbd "M-Y") 'browse-kill-ring)
+;; #### replace browse-kill-ring by helm-kill-buffer
+;; by liangchao 2018.2.13
+;; (require-package 'browse-kill-ring)
+;; (setq browse-kill-ring-separator "\f")
+;; (global-set-key (kbd "M-Y") 'browse-kill-ring)
+;; ####
 (after-load 'browse-kill-ring
   (define-key browse-kill-ring-mode-map (kbd "C-g") 'browse-kill-ring-quit)
   (define-key browse-kill-ring-mode-map (kbd "M-n") 'browse-kill-ring-forward)
@@ -162,7 +165,10 @@
 ;; Handy key bindings
 ;;----------------------------------------------------------------------------
 ;; To be able to M-x without meta
-(global-set-key (kbd "C-x C-m") 'execute-extended-command)
+;; #### make key-binding to helm-M-x
+;; by liangchao 2018.2.13
+;; (global-set-key (kbd "C-x C-m") 'execute-extended-command)
+;; ####
 
 ;; Vimmy alternatives to M-^ and C-u M-^
 (global-set-key (kbd "C-c j") 'join-line)
