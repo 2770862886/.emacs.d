@@ -1,3 +1,8 @@
+;;; init-themes.el --- initialize custom themes
+;;; Commentary:
+;; comment
+
+;;; Code:
 (require-package 'color-theme-sanityinc-solarized)
 (require-package 'color-theme-sanityinc-tomorrow)
 
@@ -14,7 +19,6 @@
 
 (add-hook 'after-init-hook 'reapply-themes)
 
-
 ;;------------------------------------------------------------------------------
 ;; Toggle between light and dark
 ;;------------------------------------------------------------------------------
@@ -30,5 +34,25 @@
   (setq custom-enabled-themes '(sanityinc-tomorrow-bright))
   (reapply-themes))
 
+;; #### config custom themes
+;; by liangchao, 2018.2.13
+;;------------------------------------------------------------------------------
+;; load custom theme path
+;;------------------------------------------------------------------------------
+(let ((basedir "~/.emacs.d/themes"))
+  (dolist (f (directory-files basedir))
+    (if (and (not (equal f ".."))
+             (file-directory-p (concat basedir f)))
+        (add-to-list 'custom-theme-load-path (concat basedir f))
+      (add-to-list 'custom-theme-load-path basedir))))
+
+(defun arjen ()
+  "Active arjen color theme."
+  (interactive)
+  (setq custom-enabled-themes '(arjen))
+  (reapply-themes))
+;; ####
 
 (provide 'init-themes)
+
+;;; init-themes.el ends here

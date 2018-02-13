@@ -155,3 +155,13 @@
                    (file-name-directory load-file-name))))
 
 (provide-theme 'arjen)
+
+;;;###autoload
+(when load-file-name
+  (add-to-list 'custom-theme-load-path
+               (file-name-as-directory (file-name-directory load-file-name))))
+
+;; Local Variables:
+;; eval: (when (require 'rainbow-mode nil t) (rainbow-mode 1))
+;; End:
+;;; arjen-theme.el ends here
