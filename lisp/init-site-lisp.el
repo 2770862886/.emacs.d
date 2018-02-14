@@ -51,6 +51,8 @@ source file under ~/.emacs.d/site-lisp/name/"
 (require 'recent-jump)
 (setq recent-jump-threshold 4)
 (setq recent-jump-ring-length 10)
+(global-unset-key [M-left])
+(global-unset-key [M-right])
 (global-set-key (kbd "M-<left>") 'recent-jump-jump-backward)
 (global-set-key (kbd "M-<right>") 'recent-jump-jump-forward)
 (require 'buffer-move)

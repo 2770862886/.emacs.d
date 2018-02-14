@@ -208,11 +208,12 @@
 (global-set-key (kbd "C-M-+") 'text-scale-increase)
 (global-set-key (kbd "C-M--") 'text-scale-decrease)
 
+;; #### Unbind these keys in site-lisp package
+;; by liangchao 2018.2.14
 ;; Train myself to use M-f and M-b instead
-(global-unset-key [M-left])
-(global-unset-key [M-right])
-
-
+;;(global-unset-key [M-left])
+;;(global-unset-key [M-right])
+;; ####
 
 (defun kill-back-to-indentation ()
   "Kill from point back to the first non-whitespace character on the line."
