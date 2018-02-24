@@ -1,6 +1,12 @@
 (maybe-require-package 'json-mode)
 (maybe-require-package 'js2-mode)
 (maybe-require-package 'coffee-mode)
+;; ### Add js2-refactor
+;; by liangchao, 2018.2.24
+(maybe-require-package 'js2-refactor)
+(maybe-require-package 'xref-js2)
+;; ###
+
 
 (defcustom preferred-javascript-mode
   (first (remove-if-not #'fboundp '(js2-mode js-mode)))
@@ -45,6 +51,18 @@
   (add-hook 'js2-mode-hook 'sanityinc/disable-js2-checks-if-flycheck-active)
 
   (add-hook 'js2-mode-hook (lambda () (setq mode-name "JS2")))
+  (add-hook 'js2-mode-hook (lambda () (flycheck-mode 1)))
+  ;; #### config js2-refactor mode
+  ;; by liangchao, 2018.2.24
+  (add-hook 'js2-mode-hook #'js2-refactor-mode)
+  (js2r-add-keybindings-with-prefix "C-c C-r")
+  (define-key js2-mode-map (kbd "C-k") #'js2r-kill)
+  ;; js-mode (which js2 is based on) binds "M-." which conflicts with xref, so
+  ;; unbind it.
+  (define-key js-mode-map (kbd "M-.") nil)
+  (add-hook 'js2-mode-hook (lambda ()
+                             (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
+  ;; ####
 
   (after-load 'js2-mode
     (js2-imenu-extras-setup)))
@@ -64,7 +82,6 @@
     (define-key js2-mode-map (kbd "M-.") nil)
     (add-hook 'js2-mode-hook
               (lambda () (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))))
-
 
 
 ;;; Coffeescript

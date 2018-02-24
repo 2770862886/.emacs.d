@@ -201,7 +201,7 @@
 (global-set-key (kbd "C-x C-k") 'kill-region)
 (global-set-key (kbd "C-c C-k") 'kill-region)
 ;; Prompt to change the code system of current file
-(global-set-key (kbd "C-c k") 'revert-buffer-with-coding-system)
+;; (global-set-key (kbd "C-c k") 'revert-buffer-with-coding-system)
 ;; Prompt to change the name of current buffer
 (global-set-key (kbd "C-c r") 'rename-buffer)
 ;; change the text size
@@ -211,8 +211,8 @@
 ;; #### Unbind these keys in site-lisp package
 ;; by liangchao 2018.2.14
 ;; Train myself to use M-f and M-b instead
-;;(global-unset-key [M-left])
-;;(global-unset-key [M-right])
+;; (global-unset-key [M-left])
+;; (global-unset-key [M-right])
 ;; ####
 
 (defun kill-back-to-indentation ()
