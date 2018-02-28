@@ -370,14 +370,18 @@ typical word processor."
      (sqlite . t))))
 
 ;; #### Add global function for org interactive function
-;; by liangchao, 2016.3.23
+;; by liangchao, 2018.2.28
 (defun todo ()
   (interactive)
   (find-file "~/notes/task.org"))
 
-(defun tech ()
+(defun work ()
   (interactive)
-  (find-file "~/notes/tech/tech.org"))
+  (find-file "~/notes/work.org"))
+
+(defun note ()
+  (interactive)
+  (find-file "~/notes/note.org"))
 ;; ####
 
 (provide 'init-org)
