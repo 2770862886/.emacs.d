@@ -372,14 +372,17 @@ typical word processor."
 ;; #### Add global function for org interactive function
 ;; by liangchao, 2018.2.28
 (defun todo ()
+  "Used to open todos org file."
   (interactive)
   (find-file "~/notes/task.org"))
 
 (defun work ()
+  "Used to open work related org file, which is add to gitignore."
   (interactive)
   (find-file "~/notes/work.org"))
 
 (defun note ()
+  "Used to open note, which is not belong to todos and work."
   (interactive)
   (find-file "~/notes/note.org"))
 ;; ####
