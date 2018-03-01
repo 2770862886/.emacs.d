@@ -48,6 +48,22 @@ source file under ~/.emacs.d/site-lisp/name/"
 ;;; by liangchao, 2018.2.12
 (require 'window-numbering)
 (require 'dired-single)
+;;; #### init dired-single config
+;;; by liangchao, 2018.3.1
+(defun my-dired-init ()
+  "Bunch of stuff to run for dired, either immediately or when it's loaded."
+  (define-key dired-mode-map [return] 'dired-single-buffer)
+  (define-key dired-mode-map [mouse-1] 'dired-single-buffer-mouse)
+  (define-key dired-mode-map "^"
+    (lambda nil (interactive) (dired-single-buffer ".."))))
+
+(if (boundp 'dired-mode-map)
+    ;; we're good to go; just add our bindings
+    (my-dired-init)
+  ;; it's not loaded yet, so add our bindings to the load-hook
+  (add-hook 'dired-load-hook 'my-dired-init))
+;;; ####
+
 (require 'recent-jump)
 (setq recent-jump-threshold 4)
 (setq recent-jump-ring-length 10)
@@ -62,7 +78,6 @@ source file under ~/.emacs.d/site-lisp/name/"
 (global-set-key (kbd "<C-S-right>") 'buf-move-right)
 ;;; (require-package 'ace-jump-mode)
 ;;; ####################################
-
 
 ;;; #### add google c code style
 ;;; by liangchao, 2018.3.1
