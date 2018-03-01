@@ -63,5 +63,13 @@ source file under ~/.emacs.d/site-lisp/name/"
 ;;; (require-package 'ace-jump-mode)
 ;;; ####################################
 
+
+;;; #### add google c code style
+;;; by liangchao, 2018.3.1
+(require 'google-c-style)
+(add-hook 'c-mode-common-hook 'google-set-c-style)
+(add-hook 'c-mode-common-hook 'google-make-newline-indent)
+;;; ####
+
 (provide 'init-site-lisp)
 ;;; init-site-lisp.el ends here

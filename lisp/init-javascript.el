@@ -35,7 +35,7 @@
 ;; #### Change tab width to 4
 ;; by liangchao, 2016.3.17
 (setq-default js2-basic-offset 4
-              js2-bounce-indent-p nil)
+              js2-bounce-indent-p t)
 ;; ####
 
 (after-load 'js2-mode
