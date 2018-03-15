@@ -385,6 +385,11 @@ typical word processor."
   "Used to open note, which is not belong to todos and work."
   (interactive)
   (find-file "~/notes/note.org"))
+
+(defun tech ()
+  "Use to open tech directory."
+  (interactive)
+  (dired "~/notes/tech/"))
 ;; ####
 
 (provide 'init-org)
