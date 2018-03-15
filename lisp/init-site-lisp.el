@@ -47,6 +47,9 @@ source file under ~/.emacs.d/site-lisp/name/"
 ;;; #### config site-lisp packages
 ;;; by liangchao, 2018.2.12
 (require 'window-numbering)
+(global-set-key (kbd "C-x p") 'window-numbering-mode)
+;; end
+
 (require 'dired-single)
 ;;; #### init dired-single config
 ;;; by liangchao, 2018.3.1

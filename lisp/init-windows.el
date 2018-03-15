@@ -4,21 +4,12 @@
 ;;----------------------------------------------------------------------------
 (add-hook 'after-init-hook 'winner-mode)
 
-
 
 ;; Make "C-x o" prompt for a target window when there are more than 2
 (require-package 'switch-window)
 (setq-default switch-window-shortcut-style 'alphabet)
 (setq-default switch-window-timeout nil)
 (global-set-key (kbd "C-x o") 'switch-window)
-
-;; Enable window numbering
-;; by liangchao 2016.4.18
-(require 'window-numbering)
-(global-set-key (kbd "C-x p") 'window-numbering-mode)
-;; end
-
-(require 'buffer-move)
 
 ;;----------------------------------------------------------------------------
 ;; When splitting window, show (other-buffer) in the new window
