@@ -89,5 +89,21 @@ source file under ~/.emacs.d/site-lisp/name/"
 (add-hook 'c-mode-common-hook 'google-make-newline-indent)
 ;;; ####
 
+;;; #### add cscope config
+;;; by liangchao, 2018.3.28
+(require 'xcscope)
+
+;;; #### add plantuml
+;;; install graphviz for prerequsite
+;; active Org-babel languages
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '(;; other Babel languages
+   (plantuml . t)))
+
+(setq org-plantuml-jar-path
+      (expand-file-name "~/bin/plantuml.jar"))
+;;; #####
+
 (provide 'init-site-lisp)
 ;;; init-site-lisp.el ends here
