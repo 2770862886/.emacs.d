@@ -1,3 +1,5 @@
+;; TODO config ivy mode further more, to cooperate with helm.
+
 (when (maybe-require-package 'ivy)
   (after-load 'ivy
     (setq-default ivy-use-virtual-buffers t
@@ -61,7 +63,5 @@
       (swiper sym))
 
     (define-key ivy-mode-map (kbd "M-s /") 'sanityinc/swiper-at-point)))
-
-
 
 (provide 'init-ivy)

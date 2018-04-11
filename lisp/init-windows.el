@@ -2,8 +2,11 @@
 ;;----------------------------------------------------------------------------
 ;; Navigate window layouts with "C-c <left>" and "C-c <right>"
 ;;----------------------------------------------------------------------------
-(add-hook 'after-init-hook 'winner-mode)
 
+;; for winner-mode keymap conflicts with Org-mode, so comment winner-mode.
+;; by liangchao 2018. 3.6
+;; (add-hook 'after-init-hook 'winner-mode)
+;; END
 
 ;; Make "C-x o" prompt for a target window when there are more than 2
 (require-package 'switch-window)
@@ -89,5 +92,9 @@ Call a second time to restore the original window configuration."
 (unless (memq window-system '(nt w32))
   (windmove-default-keybindings 'control))
 
+;; add ace-jump-mode
+(require-package 'ace-jump-mode)
+(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+;; by liangchao 2018.3.6
 
 (provide 'init-windows)

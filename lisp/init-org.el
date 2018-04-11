@@ -7,8 +7,8 @@
 
 (define-key global-map (kbd "C-c l") 'org-store-link)
 (define-key global-map (kbd "C-c a") 'org-agenda)
-
-;; Various preferences
+(define-key global-map (kbd "C-c b") 'org-switchb)
+;; Various preferencespp
 (setq org-log-done t
       org-edit-timestamp-down-means-later t
       org-archive-mark-done nil
