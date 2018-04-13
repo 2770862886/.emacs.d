@@ -3,7 +3,7 @@
       desktop-auto-save-timeout 600)
 (desktop-save-mode 1)
 ;; #### forbid desktop warning
-by liangchao 2018.3.30
+;; by liangchao 2018.3.30
 (setq-default desktop-load-locked-desktop t)
 ;; ####
 

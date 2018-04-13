@@ -7,7 +7,11 @@
 (when (executable-find "pandoc")
   (require-package 'pandoc-mode)
   (add-hook 'markdown-mode-hook 'pandoc-mode)
-  (custom-set-variables '(markdown-command "/usr/local/bin/pandoc")))
+  (setq markdown-command
+        (concat
+         "/usr/local/bin/pandoc"
+         " --from=markdown --to=html"
+         " --standalone --mathjax --highlight-style=pygments")))
 ;; ####
 
 ;; #### support gfm-mode for README.md
@@ -20,6 +24,10 @@
 (autoload 'gfm-mode "markdown-mode"
   "Major mode for editing GitHub Flavored Markdown files" t)
 (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
+
+(setq markdown-list-indent-width 4)
+(setq markdown-enable-prefix-prompts t)
+
 ;; #####
 
 (provide 'init-markdown)
