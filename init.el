@@ -121,7 +121,7 @@
 
 ;; add extra package initialization
 (require 'init-helm)
-
+(require 'init-yasnippet)
 ;; Extra packages which don't require any configuration
 
 (require-package 'gnuplot)
