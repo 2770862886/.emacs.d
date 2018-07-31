@@ -1,18 +1,22 @@
 ;;; -*- lexical-binding: t -*-
+
+;; NOTE: This is not about the "Windows" OS, but rather Emacs's
+;; "windows" concept: these are the panels within an Emacs frame which
+;; contain buffers.
+
 ;;----------------------------------------------------------------------------
 ;; Navigate window layouts with "C-c <left>" and "C-c <right>"
 ;;----------------------------------------------------------------------------
+(add-hook 'after-init-hook 'winner-mode)
 
-;; for winner-mode keymap conflicts with Org-mode, so comment winner-mode.
-;; by liangchao 2018. 3.6
-;; (add-hook 'after-init-hook 'winner-mode)
-;; END
+
 
 ;; Make "C-x o" prompt for a target window when there are more than 2
 (require-package 'switch-window)
 (setq-default switch-window-shortcut-style 'alphabet)
 (setq-default switch-window-timeout nil)
 (global-set-key (kbd "C-x o") 'switch-window)
+
 
 ;;----------------------------------------------------------------------------
 ;; When splitting window, show (other-buffer) in the new window
@@ -44,16 +48,22 @@
 ;; Rearrange split windows
 ;;----------------------------------------------------------------------------
 (defun split-window-horizontally-instead ()
+  "Kill any other windows and re-split such that the current window is on the top half of the frame."
   (interactive)
-  (save-excursion
+  (let ((other-buffer (and (next-window) (window-buffer (next-window)))))
     (delete-other-windows)
-    (funcall (split-window-func-with-other-buffer 'split-window-horizontally))))
+    (split-window-horizontally)
+    (when other-buffer
+      (set-window-buffer (next-window) other-buffer))))
 
 (defun split-window-vertically-instead ()
+  "Kill any other windows and re-split such that the current window is on the left half of the frame."
   (interactive)
-  (save-excursion
+  (let ((other-buffer (and (next-window) (window-buffer (next-window)))))
     (delete-other-windows)
-    (funcall (split-window-func-with-other-buffer 'split-window-vertically))))
+    (split-window-vertically)
+    (when other-buffer
+      (set-window-buffer (next-window) other-buffer))))
 
 (global-set-key (kbd "C-x |") 'split-window-horizontally-instead)
 (global-set-key (kbd "C-x _") 'split-window-vertically-instead)
