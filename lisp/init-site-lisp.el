@@ -48,6 +48,7 @@ source file under ~/.emacs.d/site-lisp/name/"
 ;;; by liangchao, 2018.2.12
 (require 'window-numbering)
 (global-set-key (kbd "C-x p") 'window-numbering-mode)
+(add-hook 'after-init-hook 'window-numbering-mode)
 ;; end
 
 (require 'dired-single)
