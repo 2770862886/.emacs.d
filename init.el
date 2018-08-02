@@ -131,8 +131,12 @@
 (require 'init-ledger)
 
 ;; add extra package initialization
+;; #### add extra package init
+;; by liangchao, 2018.8.2
 (require 'init-helm)
 (require 'init-yasnippet)
+(require 'init-golang)
+;; ####
 ;; Extra packages which don't require any configuration
 
 (require-package 'gnuplot)
