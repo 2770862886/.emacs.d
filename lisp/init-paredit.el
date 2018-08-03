@@ -1,3 +1,7 @@
+;;; init-paredit --- ParEdit is minor mode for performing structured editing of S-expression data.
+;;; Commentary:
+;;; Code:
+
 (require-package 'paredit)
 (autoload 'enable-paredit-mode "paredit")
 
@@ -49,3 +53,4 @@
 (add-hook 'css-mode-hook 'paredit-everywhere-mode)
 
 (provide 'init-paredit)
+;;; init-paredit ends here
