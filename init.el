@@ -136,6 +136,7 @@
 (require 'init-helm)
 (require 'init-yasnippet)
 (require 'init-golang)
+(require 'init-scheme)
 ;; ####
 ;; Extra packages which don't require any configuration
 

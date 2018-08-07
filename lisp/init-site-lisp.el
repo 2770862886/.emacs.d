@@ -103,7 +103,7 @@ source file under ~/.emacs.d/site-lisp/name/"
    (plantuml . t)))
 
 (setq org-plantuml-jar-path
-      (expand-file-name "~/bin/plantuml.jar"))
+      (expand-file-name "~/.emacs.d/plantuml.jar"))
 ;;; #####
 
 (provide 'init-site-lisp)
