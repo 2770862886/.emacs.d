@@ -3,7 +3,7 @@
 # key: try
 # --
 try {
-    $0
+    $1
 } catch (e) {
     logger.e("exception: " + e.toString());
 }

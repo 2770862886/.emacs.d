@@ -2,4 +2,4 @@
 # name: require
 # key: req
 # --
-const $1 = require("");
+const $1 = require("$2");

@@ -66,11 +66,23 @@
 
 
 
+;; #### config beacon-mode
+;; by liangchao 2018.8.16
 (when (maybe-require-package 'beacon)
-  (setq-default beacon-lighter "")
-  (setq-default beacon-size 5)
   (add-hook 'after-init-hook 'beacon-mode))
 
+(beacon-mode 1)
+
+;; only flash on window/buffer changes...
+(setq beacon-blink-when-window-changes t)
+;; ... don't be excessive:
+(setq beacon-blink-when-window-scrolls nil)
+(setq beacon-blink-when-point-moves nil)
+(setq beacon-blink-duration .4)         ; default .3
+(setq beacon-blink-delay .2)            ; default .3
+(setq beacon-blink-size 32)             ; default 40
+;; (setq beacon-color "DeepSkyblue3")
+;; ####
 
 
 ;;; Newline behaviour
