@@ -137,6 +137,7 @@
 (require 'init-yasnippet)
 (require 'init-golang)
 (require 'init-scheme)
+(require 'init-gnus)
 ;; ####
 ;; Extra packages which don't require any configuration
 

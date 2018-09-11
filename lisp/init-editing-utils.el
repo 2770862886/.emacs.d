@@ -78,7 +78,7 @@
 ;; ... don't be excessive:
 (setq beacon-blink-when-window-scrolls nil)
 (setq beacon-blink-when-point-moves nil)
-(setq beacon-blink-duration .4)         ; default .3
+(setq beacon-blink-duration .5)         ; default .3
 (setq beacon-blink-delay .2)            ; default .3
 (setq beacon-blink-size 32)             ; default 40
 ;; (setq beacon-color "DeepSkyblue3")
