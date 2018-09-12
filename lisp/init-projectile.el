@@ -10,5 +10,9 @@
            " Proj"
          (format " Proj[%s]" (projectile-project-name)))))))
 
+;; #### Change keymap prefix
+;; by liangchao 2018.9.12
+(setq projectile-keymap-prefix (kbd "C-c C-p"))
+;; ####
 
 (provide 'init-projectile)
