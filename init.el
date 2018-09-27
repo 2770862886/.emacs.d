@@ -138,6 +138,7 @@
 (require 'init-golang)
 (require 'init-scheme)
 (require 'init-gnus)
+(require 'init-term)
 ;; ####
 ;; Extra packages which don't require any configuration
 
