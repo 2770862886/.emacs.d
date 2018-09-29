@@ -27,8 +27,10 @@
   (define-key term-raw-map (kbd "C-c C-o") 'multi-term-prev)
   (define-key term-raw-map (kbd "C-c C-n") 'multi-term-next)
   (define-key term-raw-map (kbd "C-c C-j") 'toggle-term-mode)
+  (define-key term-raw-map (kbd "C-c C-y") 'term-paste)
   (define-key term-raw-map (kbd "C-p") 'term-send-up)
   (define-key term-raw-map (kbd "C-n") 'term-send-down)
+
   ;; term-line
   (define-key term-mode-map (kbd "C-c C-o") 'multi-term-prev)
   (define-key term-mode-map (kbd "C-c C-n") 'multi-term-next)
@@ -37,8 +39,8 @@
 (add-hook 'term-mode-hook 'init-term-settings)
 (add-hook 'term-mode-hook (lambda () (setq-local yas-dont-activate t)))
 
-(global-set-key (kbd "C-c C-t") 'multi-term)
-(global-set-key (kbd "C-c t") 'multi-term-dedicated-open)
+(global-set-key (kbd "C-c t") 'multi-term)
+(global-set-key (kbd "C-c C-t") 'multi-term-dedicated-open)
 
 (provide 'init-term)
 ;;; init-term.el ends here
