@@ -28,7 +28,14 @@
 
 (setq markdown-list-indent-width 4)
 (setq markdown-enable-prefix-prompts t)
-
 ;; #####
+
+;; #### add new key binding
+;; by liangchao 2018.10.7
+(eval-after-load "markdown-mode" (lambda ()
+                                   (global-set-key (kbd "C-c u") 'markdown-outline-up)
+                                   (global-set-key (kbd "C-c n") 'markdown-outline-next)
+                                   (global-set-key (kbd "C-c p") 'markdown-outline-previous)))
+;; ####
 
 (provide 'init-markdown)
