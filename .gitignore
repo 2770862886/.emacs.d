@@ -52,3 +52,4 @@ site-lisp/package/
 /magithub
 /geiser-history.racket
 /tutorial
+/request

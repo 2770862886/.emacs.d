@@ -139,6 +139,7 @@
 (require 'init-scheme)
 (require 'init-gnus)
 (require 'init-term)
+(require 'init-octave)
 ;; ####
 ;; Extra packages which don't require any configuration
 
