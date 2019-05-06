@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: comment
+# key: /**
+# --
+/**
+ * <p>$1</p>
+ * @public
+ * @since 4
+ * @draft
+ */

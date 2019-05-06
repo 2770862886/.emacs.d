@@ -1,9 +1,8 @@
-;;; init-paredit --- ParEdit is minor mode for performing structured editing of S-expression data.
+;;; init-paredit.el --- Configure paredit structured editing -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
 
 (require-package 'paredit)
-(autoload 'enable-paredit-mode "paredit")
 
 (defun maybe-map-paredit-newline ()
   (unless (or (memq major-mode '(inferior-emacs-lisp-mode cider-repl-mode))
@@ -22,7 +21,7 @@
 
 ;; Compatibility with other modes
 
-(suspend-mode-during-cua-rect-selection 'paredit-mode)
+(sanityinc/suspend-mode-during-cua-rect-selection 'paredit-mode)
 
 
 ;; Use paredit in the minibuffer
@@ -50,7 +49,6 @@
 (after-load 'paredit-everywhere
   (define-key paredit-everywhere-mode-map (kbd "M-s") nil))
 (add-hook 'prog-mode-hook 'paredit-everywhere-mode)
-(add-hook 'css-mode-hook 'paredit-everywhere-mode)
 
 (provide 'init-paredit)
-;;; init-paredit ends here
+;;; init-paredit.el ends here

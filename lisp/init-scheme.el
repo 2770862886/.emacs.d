@@ -2,6 +2,19 @@
 ;;; Commentary:
 ;;; Code:
 
+;; #### Run Racket REPL in Emacs ####
+;; racket-repl
+;; racket-run
+;; #### Eval Code ####
+;; racket-run-and-switch-to-repl
+;; racket-send-last-sexp
+;; racket-send-region
+;; #### Doc Lookup ####
+;; racket-doc
+;; racket-describe
+;; #### Completion ####
+;; complete-symbol
+
 (require-package 'racket-mode)
 
 (setq racket-racket-program "racket")

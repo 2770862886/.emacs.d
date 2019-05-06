@@ -1,8 +1,7 @@
-;;; init-themes.el --- initialize custom themes
+;;; init-themes.el --- Defaults for themes -*- lexical-binding: t -*-
 ;;; Commentary:
-;; comment
-
 ;;; Code:
+
 (require-package 'color-theme-sanityinc-solarized)
 (require-package 'color-theme-sanityinc-tomorrow)
 
@@ -18,6 +17,7 @@
   (custom-set-variables `(custom-enabled-themes (quote ,custom-enabled-themes))))
 
 (add-hook 'after-init-hook 'reapply-themes)
+
 
 ;;------------------------------------------------------------------------------
 ;; Toggle between light and dark
@@ -54,3 +54,4 @@
 ;; ####
 
 (provide 'init-themes)
+;;; init-themes.el ends here
