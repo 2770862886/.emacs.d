@@ -263,14 +263,16 @@
 ;; it will use those keybindings. For this reason, you might prefer to
 ;; use M-S-up and M-S-down, which will work even in lisp modes.
 ;;----------------------------------------------------------------------------
+;; #### Fix dup, move key-bind could not work.
+;; by liangchao, 2019.5.13
 (require-package 'move-dup)
-(global-set-key [M-up] 'md-move-lines-up)
-(global-set-key [M-down] 'md-move-lines-down)
-(global-set-key [M-S-up] 'md-move-lines-up)
-(global-set-key [M-S-down] 'md-move-lines-down)
-
-(global-set-key (kbd "C-c d") 'md-duplicate-down)
-(global-set-key (kbd "C-c u") 'md-duplicate-up)
+(global-set-key [M-up] 'md/move-lines-up)
+(global-set-key [M-down] 'md/move-lines-down)
+;; (global-set-key [M-S-up] 'md/move-lines-up)
+;; (global-set-key [M-S-down] 'md/move-lines-down)
+(global-set-key (kbd "C-c d") 'md/duplicate-down)
+(global-set-key (kbd "C-c u") 'md/duplicate-up)
+;; ####
 
 ;;----------------------------------------------------------------------------
 ;; Fix backward-up-list to understand quotes, see http://bit.ly/h7mdIL
