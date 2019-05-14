@@ -105,11 +105,5 @@ Call a second time to restore the original window configuration."
 (unless (memq window-system '(nt w32))
   (windmove-default-keybindings 'control))
 
-;; #### add ace-jump-mode
-;; by liangchao 2018.3.6
-(require-package 'ace-jump-mode)
-(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
-;; ####
-
 (provide 'init-windows)
 ;;; init-windows.el ends here

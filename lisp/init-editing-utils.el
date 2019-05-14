@@ -417,6 +417,11 @@ ORIG is the advised function, which is called with its ARGS."
 (global-set-key [f8] 'neotree-toggle)
 ;; ####
 
+;; #### add ace-jump-mode
+;; by liangchao 2018.3.6
+(require-package 'ace-jump-mode)
+(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+;; ####
 
 (provide 'init-editing-utils)
 ;;; init-editing-utils.el ends here
