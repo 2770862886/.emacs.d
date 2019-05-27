@@ -29,13 +29,16 @@
  save-interprogram-paste-before-kill t
  scroll-preserve-screen-position 'always
  set-mark-command-repeat-pop t
- show-trailing-whitespace t
  tooltip-delay 1.5
  truncate-lines nil
  truncate-partial-width-windows nil
+ show-trailing-whitespace t
  auto-save-default nil
  c-basic-offset 4
- tab-width 4)
+ tab-width 4
+ scroll-step 1
+ scroll-margin 3
+ scroll-conservatively 10000)
 
 ;; display line number in the left margin
 (global-linum-mode 1)
@@ -217,22 +220,6 @@
 (global-set-key (kbd "C-c m e") 'mc/edit-ends-of-lines)
 (global-set-key (kbd "C-c m a") 'mc/edit-beginnings-of-lines)
 
-;; Change to key binding of Mark Region
-(global-unset-key (kbd "C-SPC"))
-(global-set-key (kbd "S-SPC") 'set-mark-command)
-;; Kill one word
-(global-set-key (kbd "C-w") 'backward-kill-word)
-;; Backup key binding
-(global-set-key (kbd "C-x C-k") 'kill-region)
-(global-set-key (kbd "C-c C-k") 'kill-region)
-;; Prompt to change the code system of current file
-;; (global-set-key (kbd "C-c k") 'revert-buffer-with-coding-system)
-;; Prompt to change the name of current buffer
-(global-set-key (kbd "C-c r") 'rename-buffer)
-;; change the text size
-(global-set-key (kbd "C-M-+") 'text-scale-increase)
-(global-set-key (kbd "C-M--") 'text-scale-decrease)
-
 ;; #### Unbind these keys in site-lisp package
 ;; by liangchao 2018.2.14
 ;; Train myself to use M-f and M-b instead
@@ -393,17 +380,29 @@ ORIG is the advised function, which is called with its ARGS."
 
 (advice-add 'kmacro-call-macro :around 'sanityinc/disable-features-during-macro-call)
 
+;; #### Add/Move hotkey for buffer editing
+;; by liangchao, 2019.5.27
+;; change to key binding of Mark Region
+(global-unset-key (kbd "C-SPC"))
+(global-set-key (kbd "S-SPC") 'set-mark-command)
+;; kill one word
+(global-set-key (kbd "C-w") 'backward-kill-word)
+;; backup key binding
+(global-set-key (kbd "C-x C-k") 'kill-region)
+(global-set-key (kbd "C-c C-k") 'kill-region)
+;; change the text size
+(global-set-key (kbd "C-M-+") 'text-scale-increase)
+(global-set-key (kbd "C-M--") 'text-scale-decrease)
 ;; make change within the el file functional
 (global-set-key (kbd "C-x e") 'eval-buffer)
 (global-set-key (kbd "C-c e") 'eval-buffer)
 ;; prompt to change the code system of current buffer
 (global-set-key (kbd "C-c k") 'revert-buffer-with-coding-system)
+;; prompt to change the name of current buffer
+(global-set-key (kbd "C-c r") 'rename-buffer)
 ;; clear the white space in the buffer
 (global-set-key (kbd "C-c n") 'prelude-cleanup-buffer)
-;; scroll config
-(setq scroll-step 1
-      scroll-margin 3
-      scroll-conservatively 10000)
+;; ####
 
 ;; #### Add hotkey for find and grep command
 ;; by liangchao, 2016.4.5
