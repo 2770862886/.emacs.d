@@ -6,7 +6,7 @@
 (require-package 'color-theme-sanityinc-tomorrow)
 
 ;; If you don't customize it, this is the theme you get.
-(setq-default custom-enabled-themes '(sanityinc-tomorrow-bright))
+;; (setq-default custom-enabled-themes '(sanityinc-tomorrow-bright))
 
 ;; Ensure that themes will be applied even if they have not been customized
 (defun reapply-themes ()
@@ -45,6 +45,8 @@
              (file-directory-p (concat basedir f)))
         (add-to-list 'custom-theme-load-path (concat basedir f))
       (add-to-list 'custom-theme-load-path basedir))))
+
+(setq-default custom-enabled-themes '(zenburn))
 
 (defun arjen ()
   "Active arjen color theme."

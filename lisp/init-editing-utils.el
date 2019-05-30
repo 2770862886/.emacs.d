@@ -387,15 +387,16 @@ ORIG is the advised function, which is called with its ARGS."
 (global-set-key (kbd "S-SPC") 'set-mark-command)
 ;; kill one word
 (global-set-key (kbd "C-w") 'backward-kill-word)
-;; backup key binding
+;; kill selecting region
 (global-set-key (kbd "C-x C-k") 'kill-region)
-(global-set-key (kbd "C-c C-k") 'kill-region)
 ;; change the text size
-(global-set-key (kbd "C-M-+") 'text-scale-increase)
-(global-set-key (kbd "C-M--") 'text-scale-decrease)
+(global-unset-key (kbd "C-+"))
+(global-unset-key (kbd "C--"))
+(global-set-key (kbd "C-+") 'text-scale-increase)
+(global-set-key (kbd "C--") 'text-scale-decrease)
 ;; make change within the el file functional
 (global-set-key (kbd "C-x e") 'eval-buffer)
-(global-set-key (kbd "C-c e") 'eval-buffer)
+;; (global-set-key (kbd "C-c e") 'eval-buffer)
 ;; prompt to change the code system of current buffer
 (global-set-key (kbd "C-c k") 'revert-buffer-with-coding-system)
 ;; prompt to change the name of current buffer
