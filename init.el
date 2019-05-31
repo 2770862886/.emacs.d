@@ -143,6 +143,7 @@
 (require 'init-gnus)
 (require 'init-term)
 (require 'init-octave)
+(require 'init-plantuml)
 ;; ####
 ;; Extra packages which don't require any configuration
 

@@ -84,8 +84,6 @@ source file under ~/.emacs.d/site-lisp/name/"
 (global-set-key (kbd "<C-S-down>") 'buf-move-down)
 (global-set-key (kbd "<C-S-left>") 'buf-move-left)
 (global-set-key (kbd "<C-S-right>") 'buf-move-right)
-;;; (require-package 'ace-jump-mode)
-;;; ####################################
 
 ;;; #### add google c code style
 ;;; by liangchao, 2018.3.1
@@ -97,18 +95,7 @@ source file under ~/.emacs.d/site-lisp/name/"
 ;;; #### add cscope config
 ;;; by liangchao, 2018.3.28
 (require 'xcscope)
-
-;;; #### add plantuml
-;;; install graphviz for prerequsite
-;; active Org-babel languages
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '(;; other Babel languages
-   (plantuml . t)))
-
-(setq org-plantuml-jar-path
-      (expand-file-name "~/.emacs.d/plantuml.jar"))
-;;; #####
+;;; ####
 
 (provide 'init-site-lisp)
 ;;; init-site-lisp.el ends here
