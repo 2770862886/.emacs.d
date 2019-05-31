@@ -88,7 +88,7 @@
 (setq beacon-blink-duration .5)         ; default .3
 (setq beacon-blink-delay .2)            ; default .3
 (setq beacon-blink-size 32)             ; default 40
-;; (setq beacon-color "DeepSkyblue3")
+(setq beacon-color "DeepSkyblue3")
 ;; ####
 
 
