@@ -144,6 +144,7 @@
 (require 'init-term)
 (require 'init-octave)
 (require 'init-plantuml)
+(require 'init-irc)
 ;; ####
 ;; Extra packages which don't require any configuration
 

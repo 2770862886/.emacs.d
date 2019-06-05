@@ -134,6 +134,44 @@
   (after-load 'js2-mode
     (add-hook 'js2-mode-hook 'add-node-modules-path)))
 
+
+(require-package 'tide)
+
+(defun setup-tide-mode ()
+  "Setup tide mode manully."
+  (interactive)
+  (tide-setup)
+  (flycheck-mode 1)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (eldoc-mode 1)
+  (tide-hl-identifier-mode 1)
+  ;; company is an optional depenency. You have to install it separately.
+  (company-mode 1)
+  (local-set-key [f1] 'tide-documentation-at-point)
+  (local-set-key (kbd "C-c C-t r") 'tide-references)
+  (local-set-key (kbd "C-c C-t R") 'tide-refactor)
+  (local-set-key (kbd "C-c C-t n") 'tide-rename-symbol)
+  (local-set-key (kbd "C-c C-t f") 'tide-format)
+  (local-set-key (kbd "C-c C-t o") 'tide-organize-imports))
+
+;; aligns annotation to the right hand side
+(setq company-tooltip-align-annotations t)
+
+;; formats the buffer before saving
+(add-hook 'before-save-hook 'tide-format-before-save)
+(add-hook 'typescript-mode-hook #'setup-tide-mode)
+(add-hook 'js2-mode-hook #'setup-tide-mode)
+;; configure javascript-tide checker to run after your default javascript checker
+;; (flycheck-add-next-checker 'javascript-eslint 'javascript-tide 'append)
+
+;; full list of supported format options:
+;; https://github.com/Microsoft/TypeScript/blob/v3.3.1/src/server/protocol.ts#L2858-L2890
+(setq tide-format-options
+      '(
+        :indentSize 4
+        :insertSpaceAfterFunctionKeywordForAnonymousFunctions t
+        :placeOpenBraceOnNewLineForFunctions nil
+        :noUnusedLocals t))
 
 (provide 'init-javascript)
 ;;; init-javascript.el ends here
