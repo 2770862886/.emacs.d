@@ -147,12 +147,15 @@
   (tide-hl-identifier-mode 1)
   ;; company is an optional depenency. You have to install it separately.
   (company-mode 1)
-  (local-set-key [f1] 'tide-documentation-at-point)
-  (local-set-key (kbd "C-c C-t r") 'tide-references)
-  (local-set-key (kbd "C-c C-t R") 'tide-refactor)
+  (local-set-key (kbd "C-c C-t f") 'tide-fix)
+  (local-set-key (kbd "C-c C-t F") 'tide-format)
+  (local-set-key (kbd "C-c C-t e") 'tide-error-at-point)
+  (local-set-key (kbd "C-c C-t E") 'tide-project-errors)
+  (local-set-key (kbd "C-c C-t i") 'tide-documentation-at-point)
   (local-set-key (kbd "C-c C-t n") 'tide-rename-symbol)
-  (local-set-key (kbd "C-c C-t f") 'tide-format)
-  (local-set-key (kbd "C-c C-t o") 'tide-organize-imports))
+  (local-set-key (kbd "C-c C-t o") 'tide-organize-imports)
+  (local-set-key (kbd "C-c C-t r") 'tide-references)
+  (local-set-key (kbd "C-c C-t R") 'tide-refactor))
 
 ;; aligns annotation to the right hand side
 (setq company-tooltip-align-annotations t)
