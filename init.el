@@ -7,7 +7,10 @@
 ;;; Code:
 
 ;; Produce backtraces when errors occur
-(setq debug-on-error t)
+;; #### disable debug-on-error globally
+;; by liangchao 2019.6.14
+(setq debug-on-error nil)
+;; ####
 
 (let ((minver "24.4"))
   (when (version< emacs-version minver)
