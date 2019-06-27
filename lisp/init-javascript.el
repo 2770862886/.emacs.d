@@ -147,6 +147,8 @@
   (tide-hl-identifier-mode 1)
   ;; company is an optional depenency. You have to install it separately.
   (company-mode 1)
+  (local-set-key (kbd "C-c C-t t") 'tide-restart-server)
+  (local-set-key (kbd "C-c C-t l") 'tide-list-servers)
   (local-set-key (kbd "C-c C-t f") 'tide-fix)
   (local-set-key (kbd "C-c C-t F") 'tide-format)
   (local-set-key (kbd "C-c C-t e") 'tide-error-at-point)
@@ -173,6 +175,7 @@
       '(
         :indentSize 4
         :insertSpaceAfterFunctionKeywordForAnonymousFunctions t
+        :insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces nil
         :placeOpenBraceOnNewLineForFunctions nil
         :noUnusedLocals t))
 
