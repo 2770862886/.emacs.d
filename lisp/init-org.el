@@ -404,36 +404,12 @@ typical word processor."
      (sqlite . t))))
 
 ;; #### Better Appearance
-
-(font-lock-add-keywords 'org-mode
-                        '(("^ +\\([-*]\\) "
-                           (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
-
+;; by liangchao, 2019.7.5
 (require-package 'org-bullets)
-(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-(add-hook 'org-mode-hook 'visual-line-mode)
 
-(custom-theme-set-faces
- 'user
- '(org-block                 ((t (:inherit fixed-pitch))))
- '(org-document-info         ((t (:foreground "dark orange"))))
- '(org-document-info-keyword ((t (:inherit (shadow fixed-pitch)))))
- '(org-link                  ((t (:foreground "royal blue" :underline t))))
- '(org-meta-line             ((t (:inherit (font-lock-comment-face fixed-pitch)))))
- '(org-property-value        ((t (:inherit fixed-pitch))) t)
- '(org-special-keyword       ((t (:inherit (font-lock-comment-face fixed-pitch)))))
- '(org-tag                   ((t (:inherit (shadow fixed-pitch) :weight bold :height 0.8))))
- '(org-verbatim              ((t (:inherit (shadow fixed-pitch)))))
- '(org-indent                ((t (:inherit (org-hide fixed-pitch))))))
-
-(require-package 'pomodoro)
-;;(pomodoro-add-to-mode-line)
-(setq pomodoro-break-time 2)
-(setq pomodoro-long-break-time 5)
-(setq pomodoro-work-time 25)
-(setq-default mode-line-format
-              (cons '(pomodoro-mode-line-string pomodoro-mode-line-string)
-                    mode-line-format))
+(setq org-bullets-face-name (quote org-bullet-face))
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode t)))
+(setq org-ellipsis "↴")
 
 ;; ####
 
