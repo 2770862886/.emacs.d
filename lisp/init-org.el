@@ -410,7 +410,7 @@ typical word processor."
 (setq org-bullets-face-name (quote org-bullet-face))
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode t)))
 (setq org-ellipsis "↴")
-
+(custom-set-faces '(org-ellipsis ((t (:underline nil)))))
 ;; ####
 
 ;; #### Add global function for org interactive function
