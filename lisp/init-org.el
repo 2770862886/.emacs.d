@@ -22,6 +22,9 @@
 
 ;;; Code:
 
+(add-to-list 'load-path "~/.emacs.d/site-lisp/org-mode/lisp")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/org-mode/contrib")
+
 (when *is-a-mac*
   (maybe-require-package 'grab-mac-link))
 
