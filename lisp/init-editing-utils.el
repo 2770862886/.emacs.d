@@ -41,7 +41,7 @@
  scroll-conservatively 10000)
 
 ;; display line number in the left margin
-(global-linum-mode 1)
+(global-linum-mode t)
 ;; display cursor position in the mode line
 (line-number-mode t)
 (add-hook 'after-init-hook 'global-auto-revert-mode)

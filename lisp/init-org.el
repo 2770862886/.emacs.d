@@ -134,8 +134,8 @@ typical word processor."
 (global-set-key (kbd "C-c c") 'org-capture)
 
 (setq org-capture-templates
-      `(("t" "todo" entry (file "")  ; "" => `org-default-notes-file'
-         "* NEXT %?\n%U\n" :clock-resume t)
+      `(("t" "Todo" entry (file+headline "~/CloudStation/Org/todo.org" "Tasks")  ; "" => `org-default-notes-file'
+         "* TODO %?\n %i\n  %a")
         ("n" "note" entry (file "")
          "* %? :NOTE:\n%U\n%a\n" :clock-resume t)
         ))
@@ -415,6 +415,15 @@ typical word processor."
 
 ;; #### Add global function for org interactive function
 
+(setq org-agenda-files
+      (list "~/CloudStation/Org/inbox.org"
+            "~/CloudStation/Org/todo.org"
+            "~/CloudStation/Org/agendas.org"
+            "~/CloudStation/Org/goals.org"))
+
+(setq org-agenda-text-search-extra-files
+      (list "~/CloudStation/Org/somedaymaybe.org"))
+
 (defun inbox ()
   "Used to open inbox org file."
   (interactive)
@@ -424,12 +433,12 @@ typical word processor."
 (defun todo ()
   "Used to open todos org file."
   (interactive)
-  (find-file "~/notes/task.org"))
+  (find-file "~/CloudStation/Org/todo.org"))
 
 (defun work ()
   "Used to open work related org file, which is add to gitignore."
   (interactive)
-  (find-file "~/notes/work.org"))
+  (find-file "~/CloudStation/Org/work.org"))
 
 (defun note ()
   "Used to open note, which is not belong to todos and work."
