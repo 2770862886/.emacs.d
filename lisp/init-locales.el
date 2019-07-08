@@ -19,8 +19,11 @@
   (set-selection-coding-system (if (eq system-type 'windows-nt) 'utf-16-le 'utf-8))
   (prefer-coding-system 'utf-8))
 
+;; #### config default font for displaying org-ellipsis
+;; by liangchao, 2019.7.5
 (when *is-a-mac*
   (set-default-font "Dejavu Sans Mono for Powerline"))
+;; ####
 
 (provide 'init-locales)
 ;;; init-locales.el ends here
