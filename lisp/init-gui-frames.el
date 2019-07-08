@@ -84,16 +84,15 @@
           (lambda ()
             (setq line-spacing 0)))
 
-
 ;; Change global font size easily
 
 (require-package 'default-text-scale)
 (add-hook 'after-init-hook 'default-text-scale-mode)
 
-
-
 (require-package 'disable-mouse)
 
+(require-package 'doom-modeline)
+(doom-modeline-mode t)
 
 (provide 'init-gui-frames)
 ;;; init-gui-frames.el ends here
