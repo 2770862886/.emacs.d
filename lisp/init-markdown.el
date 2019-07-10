@@ -42,5 +42,16 @@
                                    (global-set-key (kbd "C-c p") 'markdown-outline-previous)))
 ;; ####
 
+;; #### custome header faces
+;; by liangchao 2019.7.10
+(custom-set-faces
+ '(markdown-header-face-1 ((t (:foreground "#ff79c6"))))
+ '(markdown-header-face-2 ((t (:foreground "#bd93f9"))))
+ '(markdown-header-face-3 ((t (:foreground "#50fa7b"))))
+ '(markdown-header-face-4 ((t (:foreground "#f1fa8c"))))
+ '(markdown-header-face-5 ((t (:foreground "#8be9fd"))))
+ '(markdown-header-face-6 ((t (:foreground "#ffb86c")))))
+;; ####
+
 (provide 'init-markdown)
 ;;; init-markdown.el ends here
