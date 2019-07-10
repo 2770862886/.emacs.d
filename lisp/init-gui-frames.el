@@ -6,6 +6,7 @@
 ;; Stop C-z from minimizing windows under OS X
 ;;----------------------------------------------------------------------------
 (defun sanityinc/maybe-suspend-frame ()
+  "Maybe suspend frame for Ctrl-z."
   (interactive)
   (unless (and *is-a-mac* window-system)
     (suspend-frame)))
@@ -91,8 +92,35 @@
 
 (require-package 'disable-mouse)
 
+;; #### initialize doom-modeline-mode
+;; by liangchao, 2019.7.8
 (require-package 'doom-modeline)
-(doom-modeline-mode t)
+(doom-modeline-init)
+
+;; How tall the mode-line should be. It's only respected in GUI.
+;; If the actual char height is larger, it respects the actual height.
+(setq doom-modeline-height 24)
+;; How wide the mode-line bar should be. It's only respected in GUI.
+(setq doom-modeline-bar-width 1)
+;; Whether display minor modes in mode-line or not.
+(setq doom-modeline-minor-modes nil)
+
+(setq doom-modeline-buffer-file-name-style 'truncate-upto-root)
+
+;; Whether display buffer encoding.
+(setq doom-modeline-buffer-encoding t)
+
+;; The maximum displayed length of the branch name of version control.
+(setq doom-modeline-vcs-max-length 12)
+
+;; If non-nil, only display one number for checker information if applicable.
+(setq doom-modeline-checker-simple-format t)
+
+(doom-modeline-def-modeline 'main
+  '(bar matches buffer-info remote-host buffer-position parrot selection-info)
+  '(major-mode vcs checker))
+
+;; ####
 
 (provide 'init-gui-frames)
 ;;; init-gui-frames.el ends here

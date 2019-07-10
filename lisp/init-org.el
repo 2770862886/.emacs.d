@@ -136,21 +136,29 @@ typical word processor."
 
 (global-set-key (kbd "C-c c") 'org-capture)
 
+
+;; #### customize capture-template
+;; by liangchao, 2019.7.9
+(setq org-reverse-note-order t)
+
 (setq org-capture-templates
-      `(("t" "Todo" entry (file+headline "~/CloudStation/Org/todo.org" "Tasks")  ; "" => `org-default-notes-file'
+      `(("t" "Todo" entry (file+headline "~/CloudStation/Org/task.org" "Tasks")
          "* TODO %?\n %i\n  %a")
-        ("n" "note" entry (file "")
-         "* %? :NOTE:\n%U\n%a\n" :clock-resume t)
-        ))
+        ("r" "Reading & Studying" entry (file+headline "~/CloudStation/Org/task.org", "Tasks")
+         "* %? :reading:\n%U\n" :clock-resume t)
+        ("j" "Journal" entry (file+datetree "~/notes/journal.org")
+         "* %U - %^{heading}\n  %?")))
 
-
+;; ####
 
 ;;; Refiling
 
 (setq org-refile-use-cache nil)
 
 ;; Targets include this file and any file contributing to the agenda - up to 5 levels deep
-(setq org-refile-targets '((nil :maxlevel . 5) (org-agenda-files :maxlevel . 5)))
+(setq org-refile-targets '((nil :maxlevel . 5)
+                           (org-agenda-files :level . 1)
+                           (org-agenda-text-search-extra-files :level . 1)))
 
 (after-load 'org-agenda
   (add-to-list 'org-agenda-after-show-hook 'org-show-entry))
@@ -416,17 +424,23 @@ typical word processor."
 (custom-set-faces '(org-ellipsis ((t (:underline nil)))))
 ;; ####
 
-;; #### Add global function for org interactive function
-
+;; #### GTD & Notes configuration
+;; by liangchao, 2019.7.9
 (setq org-agenda-files
       (list "~/CloudStation/Org/inbox.org"
-            "~/CloudStation/Org/todo.org"
+            "~/CloudStation/Org/task.org"
             "~/CloudStation/Org/agendas.org"
             "~/CloudStation/Org/goals.org"))
 
 (setq org-agenda-text-search-extra-files
       (list "~/CloudStation/Org/somedaymaybe.org"))
 
+
+
+
+
+
+;; #### Add global function for org interactive function
 (defun inbox ()
   "Used to open inbox org file."
   (interactive)
@@ -436,7 +450,12 @@ typical word processor."
 (defun todo ()
   "Used to open todos org file."
   (interactive)
-  (find-file "~/CloudStation/Org/todo.org"))
+  (find-file "~/CloudStation/Org/task.org"))
+
+(defun someday ()
+  "Used to open someday / maybe file."
+  (interactive)
+  (find-file "~/CloudStation/Org/somedaymaybe.org"))
 
 (defun work ()
   "Used to open work related org file, which is add to gitignore."
