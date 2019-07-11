@@ -42,7 +42,9 @@
       org-fast-tag-selection-single-key 'expert
       org-html-validation-link nil
       org-export-kill-product-buffer-when-displayed t
-      org-tags-column 80)
+      org-tags-column 80
+      org-use-fast-todo-selection t
+      org-treat-S-cursor-todo-selection-as-state-change nil)
 
 
 ;; Lots of stuff from http://doc.norang.ca/org-mode.html
@@ -198,12 +200,16 @@ typical word processor."
 (setq org-todo-keywords
       (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!/!)")
               (sequence "PROJECT(p)" "|" "DONE(d!/!)" "CANCELLED(c@/!)")
-              (sequence "WAITING(w@/!)" "DELEGATED(e!)" "HOLD(h)" "|" "CANCELLED(c@/!)")))
-      org-todo-repeat-to-state "NEXT")
+              (sequence "WAITING(w@/!)" "DELEGATED(e!)" "HOLD(h)" "|" "CANCELLED(c@/!)"))))
 
 (setq org-todo-keyword-faces
-      (quote (("NEXT" :inherit warning)
-              ("PROJECT" :inherit font-lock-string-face))))
+      (quote (("TODO" :foreground "red" :weight bold)
+              ("NEXT" :foreground "DeepSkyBlue3" :weight bold)
+              ("DONE" :foreground "forest green" :weight bold)
+              ("WAITING" :foreground "orange" :weight bold)
+              ("HOLD" :foreground "magenta" :weight bold)
+              ("CANCELLED" :foreground "forest green" :weight bold)
+              ("PROJECT" :foreground "DeepPink3" :weight bold))))
 
 
 (setq org-tag-alist '((:startgroup . nil)
