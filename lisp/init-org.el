@@ -193,7 +193,8 @@ typical word processor."
 
 
 ;;; To-do settings
-
+;; Customize GTD configs
+;; by liangchao, 2019.7.11
 (setq org-todo-keywords
       (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!/!)")
               (sequence "PROJECT(p)" "|" "DONE(d!/!)" "CANCELLED(c@/!)")
@@ -205,6 +206,23 @@ typical word processor."
               ("PROJECT" :inherit font-lock-string-face))))
 
 
+(setq org-tag-alist '((:startgroup . nil)
+                      ("@office" . ?o)
+                      ("@home" . ?h)
+                      (:endgroup . nil)
+                      (:startgroup . nil)
+                      ("computer" . ?c)
+                      ("laptop" . ?l)
+                      ("phone" . ?p)
+                      ("xbox" . ?x)
+                      (:endgroup . nil)
+                      ("work" . ?w)
+                      ("play" . ?y)
+                      ("read" . ?r)
+                      ("study" . ?s)
+                      ("watch" . ?w)
+                      ("emacs" . ?e)))
+;; ####
 
 ;;; Agenda views
 
