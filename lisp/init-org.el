@@ -228,6 +228,12 @@ typical word processor."
                       ("study" . ?s)
                       ("watch" . ?w)
                       ("emacs" . ?e)))
+
+;; effort estimate
+;; (setq org-columns-default-format "%38ITEM(Details) %TAGS(Context) %7TODO(To Do) %5Effort(Time){:} %6CLOCKSUM{Total}")
+(setq org-columns-default-format  "%70ITEM(Task) %TAGS(Context) %10Effort(Effort){:} %10CLOCKSUM")
+(setq org-global-properties (quote (("Effort_ALL" . "0:15 0:30 0:45 1:00 2:00 3:00 4:00 5:00 6:00 0:00")
+                                    ("STYLE_ALL" . "habit"))))
 ;; ####
 
 ;;; Agenda views
@@ -444,7 +450,7 @@ typical word processor."
 
 (setq org-bullets-face-name (quote org-bullet-face))
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode t)))
-(setq org-ellipsis "↴")
+(setq org-ellipsis "↴") ;; ⤵, ▼, ↴, ⬎, ⤷, and ⋱
 (custom-set-faces '(org-ellipsis ((t (:underline nil)))))
 ;; ####
 

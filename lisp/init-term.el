@@ -1,7 +1,7 @@
 ;;; init-term.el --- initialize and setup multi-term mode
 ;;; Commentary:
 ;;; Code:
-(require 'multi-term)
+(require-package 'multi-term)
 
 (setq multi-term-buffer-name "term"
       multi-term-program "/bin/zsh"

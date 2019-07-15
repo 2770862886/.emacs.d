@@ -1,6 +1,6 @@
-;;----------------------------------------------------------------------------
-;; yassnippet
-;;----------------------------------------------------------------------------
+;;; init-yasnippet.el --- yet another snippet
+;;; Commentary:
+;;; Code:
 
 (require-package 'yasnippet)
 
@@ -19,6 +19,7 @@
 (define-key popup-menu-keymap (kbd "M-p") 'popup-previous)
 
 (defun yas-popup-isearch-prompt (prompt choices &optional display-fn)
+  "Used for snippet popup. PROMPT.  CHOICES, DISPLAY-FN."
   (when (featurep 'popup)
     (popup-menu*
      (mapcar
