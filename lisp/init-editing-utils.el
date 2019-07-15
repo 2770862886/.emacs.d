@@ -423,5 +423,11 @@ ORIG is the advised function, which is called with its ARGS."
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 ;; ####
 
+;; #### add auctex
+;; by liangchao 2019.7.14
+(require-package 'auctex)
+(require 'tex-site)
+;; ####
+
 (provide 'init-editing-utils)
 ;;; init-editing-utils.el ends here

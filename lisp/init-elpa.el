@@ -29,7 +29,7 @@
       (add-to-list 'package-archives '("gnu" . (concat proto "://elpa.gnu.org/packages/")))
     (unless no-ssl
       ;; Force SSL for GNU ELPA
-      (setcdr (assoc "gnu" package-archives) "https://elpa.gnu.org/packages/"))))
+      (setcdr (assoc "gnu" package-archives) "https://mirrors.cloud.tencent.com/elpa/gnu/"))))
 
 
 ;;; On-demand installation of packages
