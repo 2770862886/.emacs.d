@@ -198,16 +198,16 @@ typical word processor."
 ;; Customize GTD configs
 ;; by liangchao, 2019.7.11
 (setq org-todo-keywords
-      (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!/!)")
+      (quote ((sequence "TODO(t)" "STARTED(s)" "|" "DONE(d!/!)")
               (sequence "PROJECT(p)" "|" "DONE(d!/!)" "CANCELLED(c@/!)")
               (sequence "WAITING(w@/!)" "DELEGATED(e!)" "HOLD(h)" "|" "CANCELLED(c@/!)"))))
 
 (setq org-todo-keyword-faces
       (quote (("TODO" :foreground "red" :weight bold)
-              ("NEXT" :foreground "DeepSkyBlue3" :weight bold)
-              ("DONE" :foreground "forest green" :weight bold)
+              ("STARTED" :foreground "DeepSkyBlue3" :weight bold)
               ("WAITING" :foreground "orange" :weight bold)
               ("HOLD" :foreground "magenta" :weight bold)
+              ("DONE" :foreground "forest green" :weight bold)
               ("CANCELLED" :foreground "forest green" :weight bold)
               ("PROJECT" :foreground "DeepPink3" :weight bold))))
 
