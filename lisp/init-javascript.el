@@ -141,12 +141,9 @@
   "Setup tide mode manully."
   (interactive)
   (tide-setup)
-  (flycheck-mode 1)
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
   (eldoc-mode 1)
   (tide-hl-identifier-mode 1)
-  ;; company is an optional depenency. You have to install it separately.
-  (company-mode 1)
   (local-set-key (kbd "C-c C-t t") 'tide-restart-server)
   (local-set-key (kbd "C-c C-t l") 'tide-list-servers)
   (local-set-key (kbd "C-c C-t f") 'tide-fix)
@@ -160,7 +157,7 @@
   (local-set-key (kbd "C-c C-t R") 'tide-refactor))
 
 ;; aligns annotation to the right hand side
-(setq company-tooltip-align-annotations t)
+;; (setq company-tooltip-align-annotations t)
 
 ;; formats the buffer before saving
 (add-hook 'before-save-hook 'tide-format-before-save)
