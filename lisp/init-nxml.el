@@ -12,7 +12,11 @@
 (setq magic-mode-alist (cons '("<\\?xml " . nxml-mode) magic-mode-alist))
 (fset 'xml-mode 'nxml-mode)
 (setq nxml-slash-auto-complete-flag t)
-
+;; set indents to 4 spaces
+;; by liangchao, 2019.7.22
+(setq nxml-child-indent 4
+      nxml-attribute-indent 4)
+;; ####
 
 ;; See: http://sinewalker.wordpress.com/2008/06/26/pretty-printing-xml-with-emacs-nxml-mode/
 (defun sanityinc/pp-xml-region (beg end)
