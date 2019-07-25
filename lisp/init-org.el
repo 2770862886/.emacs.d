@@ -211,7 +211,6 @@ typical word processor."
               ("CANCELLED" :foreground "forest green" :weight bold)
               ("PROJECT" :foreground "DeepPink3" :weight bold))))
 
-
 (setq org-tag-alist '((:startgroup . nil)
                       ("@office" . ?o)
                       ("@home" . ?h)
@@ -226,7 +225,7 @@ typical word processor."
                       ("play" . ?y)
                       ("read" . ?r)
                       ("study" . ?s)
-                      ("watch" . ?w)
+                      ("watch" . ?t)
                       ("emacs" . ?e)))
 
 ;; effort estimate
@@ -464,11 +463,6 @@ typical word processor."
 
 (setq org-agenda-text-search-extra-files
       (list "~/CloudStation/Org/somedaymaybe.org"))
-
-
-
-
-
 
 ;; #### Add global function for org interactive function
 (defun inbox ()
