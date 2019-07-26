@@ -71,7 +71,6 @@
 (require 'init-recentf)
 (require 'init-smex)
 (require 'init-ivy)
-;;(require 'init-helm)
 (require 'init-hippie-expand)
 (require 'init-company)
 (require 'init-windows)
@@ -147,7 +146,6 @@
 (require 'init-term)
 (require 'init-octave)
 (require 'init-plantuml)
-(require 'init-irc)
 ;; ####
 ;; Extra packages which don't require any configuration
 

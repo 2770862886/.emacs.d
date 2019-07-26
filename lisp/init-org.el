@@ -141,15 +141,29 @@ typical word processor."
 
 ;; #### customize capture-template
 ;; by liangchao, 2019.7.9
+(setq org-directory "~/CloudStation/Org/")
+
 (setq org-reverse-note-order t)
 
 (setq org-capture-templates
-      `(("t" "Todo" entry (file+headline "~/CloudStation/Org/task.org" "Tasks")
-         "* TODO %?\n %i\n  %a")
-        ("r" "Reading & Studying" entry (file+headline "~/CloudStation/Org/task.org", "Tasks")
-         "* %? :reading:\n%U\n" :clock-resume t)
-        ("j" "Journal" entry (file+datetree "~/notes/journal.org")
-         "* %U - %^{heading}\n  %?")))
+      `(("t" "Task" entry (file+headline ,(concat org-directory "task.org") "Tasks")
+         "* TODO %?\n %i\n %a")
+        ("p" "Project" entry (file+headline ,(concat org-directory "task.org") "Projects")
+         "* TODO %?\n %i\n %a")
+        ("g" "Goal" entry (file+headline ,(concat org-directory "goals.org") "Goals")
+         "* %?\n %i")
+        ("s" "Someday" entry (file+headline ,(concat org-directory "somedaymaybe.org") "Someday")
+         "* %?\n %i")
+        ("y" "Maybe" entry (file+headline ,(concat org-directory "somedaymaybe.org") "Maybe")
+         "* %?\n %i")
+        ("d" "Review: Daily Review" entry ()
+         "")
+        ("w" "Review: Weekly Review" entry ()
+         "")
+        ("m" "Review: Monthly Review" entry ()
+         "")
+        ("j" "Journal" entry (file+datetree ,(concat org-directory "journal.org"))
+         "* %U - %^{heading}\n %?")))
 
 ;; ####
 
