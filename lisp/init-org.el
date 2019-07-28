@@ -513,12 +513,7 @@ typical word processor."
              ("i" . yankpad-insert)
              ("m" . yankpad-map)
              ("r" . yankpad-reload)
-             ("x" . yankpad-expand))
-  ;; If you want to complete snippets using company-mode
-                                        ;(add-to-list 'company-backends #'company-yankpad)
-  ;; If you want to expand snippets with hippie-expand
-                                        ;(add-to-list 'hippie-expand-try-functions-list #'yankpad-expand)
-  )
+             ("x" . yankpad-expand)))
 
 (provide 'init-org)
 ;;; init-org.el ends here
