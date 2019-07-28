@@ -429,5 +429,17 @@ ORIG is the advised function, which is called with its ARGS."
 (require 'tex-site)
 ;; ####
 
+;; #### jump to minibuffer
+;; by liangchao 2019.7.29, Code comes from EmacsWifi
+(defun switch-to-minibuffer ()
+  "Switch to minibuffer window."
+  (interactive)
+  (if (active-minibuffer-window)
+      (select-window (active-minibuffer-window))
+    (error "Minibuffer is not active")))
+
+(global-set-key (kbd "C-c o") 'switch-to-minibuffer)
+;; ####
+
 (provide 'init-editing-utils)
 ;;; init-editing-utils.el ends here

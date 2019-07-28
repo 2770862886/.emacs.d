@@ -1,7 +1,8 @@
 * Other
 ** BugID                                                                        :b:
-   BugID::
+   BugID:$1:$2
 
-   Root Cause:$2
-   Solution:$3
+   Root Cause:$3
+   Solution:$4
    Test Suggestion:Test all the cases related
+   $0
