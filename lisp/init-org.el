@@ -147,23 +147,25 @@ typical word processor."
 
 (setq org-capture-templates
       `(("t" "Task" entry (file+headline ,(concat org-directory "task.org") "Tasks")
-         "* TODO %?\n %i\n %a")
+         "* TODO %?\n %i")
         ("p" "Project" entry (file+headline ,(concat org-directory "task.org") "Projects")
-         "* TODO %?\n %i\n %a")
+         (file "~/notes/templates/newprojecttemplate.org"))
         ("g" "Goal" entry (file+headline ,(concat org-directory "goals.org") "Goals")
          "* %?\n %i")
         ("s" "Someday" entry (file+headline ,(concat org-directory "somedaymaybe.org") "Someday")
          "* %?\n %i")
         ("y" "Maybe" entry (file+headline ,(concat org-directory "somedaymaybe.org") "Maybe")
          "* %?\n %i")
-        ("d" "Review: Daily Review" entry ()
-         "")
-        ("w" "Review: Weekly Review" entry ()
-         "")
-        ("m" "Review: Monthly Review" entry ()
-         "")
+        ("d" "Review: Daily Review" entry (file+olp+datetree "/tmp/reviews.org")
+         (file "~/notes/templates/dailyreviewtemplate.org"))
+        ("w" "Review: Weekly Review" entry (file+olp+datetree "/tmp/reviews.org")
+         (file "~/notes/templates/weeklyreviewtemplate.org"))
+        ("m" "Review: Monthly Review" entry (file+olp+datetree "/tmp/reviews.org")
+         (file "~/notes/templates/monthlyreviewtemplate.org"))
         ("j" "Journal" entry (file+datetree ,(concat org-directory "journal.org"))
          "* %U - %^{heading}\n %?")))
+
+(f-touch "/tmp/reviews.org")
 
 ;; ####
 
@@ -490,11 +492,6 @@ typical word processor."
   (interactive)
   (find-file "~/CloudStation/Org/task.org"))
 
-(defun someday ()
-  "Used to open someday / maybe file."
-  (interactive)
-  (find-file "~/CloudStation/Org/somedaymaybe.org"))
-
 (defun work ()
   "Used to open work related org file, which is add to gitignore."
   (interactive)
@@ -504,12 +501,24 @@ typical word processor."
   "Used to open note, which is not belong to todos and work."
   (interactive)
   (find-file "~/notes/note.org"))
-
-(defun tech ()
-  "Use to open tech directory."
-  (interactive)
-  (dired "~/notes/tech/"))
 ;; ####
+
+(use-package yankpad
+  :init
+  (setq yankpad-file "~/.emacs.d/org/yankpad.org")
+  (bind-keys :prefix-map yankmap
+             :prefix "C-c y"
+             ("c" . yankpad-set-category)
+             ("e" . yankpad-edit)
+             ("i" . yankpad-insert)
+             ("m" . yankpad-map)
+             ("r" . yankpad-reload)
+             ("x" . yankpad-expand))
+  ;; If you want to complete snippets using company-mode
+                                        ;(add-to-list 'company-backends #'company-yankpad)
+  ;; If you want to expand snippets with hippie-expand
+                                        ;(add-to-list 'hippie-expand-try-functions-list #'yankpad-expand)
+  )
 
 (provide 'init-org)
 ;;; init-org.el ends here

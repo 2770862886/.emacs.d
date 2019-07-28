@@ -1,0 +1,7 @@
+* Other
+** BugID                                                                        :b:
+   BugID::
+
+   Root Cause:$2
+   Solution:$3
+   Test Suggestion:Test all the cases related

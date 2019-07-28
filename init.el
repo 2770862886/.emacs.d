@@ -52,6 +52,12 @@
 ;; Load configs for specific features and modes
 ;;----------------------------------------------------------------------------
 
+;; #### initialize use-package
+;; by liangchao, 2019.7.28
+(eval-when-compile
+  (require-package 'use-package))
+;; ####
+
 (require-package 'diminish)
 (maybe-require-package 'scratch)
 (require-package 'command-log-mode)
@@ -200,3 +206,4 @@
 ;; no-byte-compile: t
 ;; End:
 ;;; init.el ends here
+(put 'set-goal-column 'disabled nil)
