@@ -92,6 +92,8 @@
 
 (require-package 'disable-mouse)
 
+;; #### use winum-mode
+;; by liangchao, 2019.7.29
 (setq winum-keymap
       (let ((map (make-sparse-keymap)))
         (define-key map (kbd "C-`") 'winum-select-window-by-number)
@@ -109,6 +111,7 @@
 
 (require-package 'winum)
 (winum-mode)
+;; ####
 
 ;; #### initialize doom-modeline-mode
 ;; by liangchao, 2019.7.8
