@@ -119,8 +119,8 @@
 (use-package spaceline-all-the-icons
   :ensure t
   :config
-  (setq powerline-default-separator 'utf-8)
-  (spaceline-all-the-icons-theme))
+  (spaceline-all-the-icons-theme)
+  (setq spaceline-all-the-icons-separator-type 'arrow))
 ;; ####
 
 (provide 'init-gui-frames)
