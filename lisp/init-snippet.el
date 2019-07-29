@@ -16,7 +16,7 @@
 (define-key popup-menu-keymap (kbd "M-p") 'popup-previous)
 
 (defun yas-popup-isearch-prompt (prompt choices &optional display-fn)
-  "Used for snippet popup. PROMPT.  CHOICES, DISPLAY-FN."
+  "Used for snippet popup.  PROMPT,  CHOICES,  DISPLAY-FN."
   (when (featurep 'popup)
     (popup-menu*
      (mapcar
@@ -33,6 +33,8 @@
 
 (setq yas-prompt-functions '(yas-popup-isearch-prompt yas-ido-prompt yas-no-prompt))
 
+(require-package 'yankpad)
+
 (use-package yankpad
   :init
   (setq yankpad-file "~/.emacs.d/org/yankpad.org")
@@ -46,4 +48,4 @@
              ("x" . yankpad-expand)))
 
 (provide 'init-snippet)
-;;; init-yasnippet ends here
+;;; init-snippet ends here
