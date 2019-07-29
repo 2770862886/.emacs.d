@@ -6,6 +6,7 @@
 (require-package 'color-theme-sanityinc-tomorrow)
 (require-package 'zenburn-theme)
 (require-package 'dracula-theme)
+(require-package 'chocolate-theme)
 
 ;; If you don't customize it, this is the theme you get.
 ;; (setq-default custom-enabled-themes '(sanityinc-tomorrow-bright))
@@ -48,7 +49,7 @@
         (add-to-list 'custom-theme-load-path (concat basedir f))
       (add-to-list 'custom-theme-load-path basedir))))
 
-(setq-default custom-enabled-themes '(zenburn))
+(setq-default custom-enabled-themes '(dracula))
 ;; ####
 
 (provide 'init-themes)

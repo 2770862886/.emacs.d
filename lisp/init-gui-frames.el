@@ -92,24 +92,32 @@
 
 (require-package 'disable-mouse)
 
+(setq winum-keymap
+      (let ((map (make-sparse-keymap)))
+        (define-key map (kbd "C-`") 'winum-select-window-by-number)
+        (define-key map (kbd "C-²") 'winum-select-window-by-number)
+        (define-key map (kbd "M-0") 'winum-select-window-0-or-10)
+        (define-key map (kbd "M-1") 'winum-select-window-1)
+        (define-key map (kbd "M-2") 'winum-select-window-2)
+        (define-key map (kbd "M-3") 'winum-select-window-3)
+        (define-key map (kbd "M-4") 'winum-select-window-4)
+        (define-key map (kbd "M-5") 'winum-select-window-5)
+        (define-key map (kbd "M-6") 'winum-select-window-6)
+        (define-key map (kbd "M-7") 'winum-select-window-7)
+        (define-key map (kbd "M-8") 'winum-select-window-8)
+        map))
+
+(require-package 'winum)
+(winum-mode)
+
 ;; #### initialize doom-modeline-mode
 ;; by liangchao, 2019.7.8
-(require-package 'doom-modeline)
-(doom-modeline-init)
-
-;; How tall the mode-line should be. It's only respected in GUI.
-;; If the actual char height is larger, it respects the actual height.
-(setq doom-modeline-height 24)
-;; How wide the mode-line bar should be. It's only respected in GUI.
-(setq doom-modeline-bar-width 4)
-;; Displays the buffer name.
-(setq doom-modeline-buffer-file-name-style 'buffer-name)
-;; If non-nil, only display one number for checker information if applicable.
-(setq doom-modeline-checker-simple-format t)
-
-(doom-modeline-def-modeline 'main
-  '(bar matches buffer-info remote-host buffer-position parrot selection-info)
-  '(buffer-encoding major-mode vcs checker))
+;; (require-package 'spaceline-all-the-icons)
+(use-package spaceline-all-the-icons
+  :ensure t
+  :config
+  (setq powerline-default-separator 'utf-8)
+  (spaceline-all-the-icons-theme))
 ;; ####
 
 (provide 'init-gui-frames)

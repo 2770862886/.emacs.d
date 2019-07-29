@@ -47,14 +47,6 @@ source file under ~/.emacs.d/site-lisp/name/"
   (let ((f (locate-library (symbol-name name))))
     (and f (string-prefix-p (file-name-as-directory (site-lisp-dir-for name)) f))))
 
-
-;;; #### config site-lisp packages
-;;; by liangchao, 2018.2.12
-(require 'window-numbering)
-(global-set-key (kbd "C-x p") 'window-numbering-mode)
-(add-hook 'after-init-hook 'window-numbering-mode)
-;; end
-
 (require 'dired-single)
 ;;; #### init dired-single config
 ;;; by liangchao, 2018.3.1

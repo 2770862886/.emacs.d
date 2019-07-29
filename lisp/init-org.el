@@ -165,7 +165,7 @@ typical word processor."
         ("j" "Journal" entry (file+datetree ,(concat org-directory "journal.org"))
          "* %U - %^{heading}\n %?")))
 
-(f-touch "/tmp/reviews.org")
+;; (f-touch "/tmp/reviews.org")
 
 ;; ####
 
