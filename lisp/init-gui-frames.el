@@ -120,6 +120,8 @@
   :ensure t
   :config
   (spaceline-all-the-icons-theme)
+  (spaceline-helm-mode t)
+  (spaceline-info-mode t)
   (setq spaceline-all-the-icons-separator-type 'arrow))
 ;; ####
 

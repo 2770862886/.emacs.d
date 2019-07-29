@@ -1,11 +1,8 @@
-;;; init-yasnippet.el --- yet another snippet
+;;; init-snippet.el --- snippet
 ;;; Commentary:
 ;;; Code:
 
 (require-package 'yasnippet)
-
-;; open ac-dwin
-;; (setq ac-dwim t)
 
 (setq yas-snippet-dirs
       '(yas-installed-snippets-dir      ;; the default collection
@@ -36,5 +33,17 @@
 
 (setq yas-prompt-functions '(yas-popup-isearch-prompt yas-ido-prompt yas-no-prompt))
 
-(provide 'init-yasnippet)
+(use-package yankpad
+  :init
+  (setq yankpad-file "~/.emacs.d/org/yankpad.org")
+  (bind-keys :prefix-map yankmap
+             :prefix "C-c y"
+             ("c" . yankpad-set-category)
+             ("e" . yankpad-edit)
+             ("i" . yankpad-insert)
+             ("m" . yankpad-map)
+             ("r" . yankpad-reload)
+             ("x" . yankpad-expand)))
+
+(provide 'init-snippet)
 ;;; init-yasnippet ends here

@@ -503,17 +503,5 @@ typical word processor."
   (find-file "~/notes/note.org"))
 ;; ####
 
-(use-package yankpad
-  :init
-  (setq yankpad-file "~/.emacs.d/org/yankpad.org")
-  (bind-keys :prefix-map yankmap
-             :prefix "C-c y"
-             ("c" . yankpad-set-category)
-             ("e" . yankpad-edit)
-             ("i" . yankpad-insert)
-             ("m" . yankpad-map)
-             ("r" . yankpad-reload)
-             ("x" . yankpad-expand)))
-
 (provide 'init-org)
 ;;; init-org.el ends here

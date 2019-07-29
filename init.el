@@ -145,7 +145,7 @@
 ;; #### add extra package init
 ;; by liangchao, 2018.8.2
 (require 'init-helm)
-(require 'init-yasnippet)
+(require 'init-snippet)
 (require 'init-golang)
 (require 'init-scheme)
 (require 'init-gnus)
