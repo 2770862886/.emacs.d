@@ -5,8 +5,7 @@
 (require-package 'yasnippet)
 
 (setq yas-snippet-dirs
-      '(yas-installed-snippets-dir      ;; the default collection
-        "~/.emacs.d/snippets"))         ;; personal snippets
+      '("~/.emacs.d/snippets"))         ;; personal snippets
 
 (yas-global-mode 1)
 

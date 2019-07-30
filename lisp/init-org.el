@@ -150,11 +150,13 @@ typical word processor."
          "* TODO %?\n %i")
         ("p" "Project" entry (file+headline ,(concat org-directory "task.org") "Projects")
          (file "~/notes/templates/newprojecttemplate.org"))
-        ("g" "Goal" entry (file+headline ,(concat org-directory "goals.org") "Goals")
-         "* %?\n %i")
         ("s" "Someday" entry (file+headline ,(concat org-directory "somedaymaybe.org") "Someday")
          "* %?\n %i")
         ("y" "Maybe" entry (file+headline ,(concat org-directory "somedaymaybe.org") "Maybe")
+         "* %?\n %i")
+        ("n" "Note" entry (file+olp+datetree, "~/notes/note.org")
+         "* %?\n %i")
+        ("g" "Goal" entry (file+headline ,(concat org-directory "goals.org") "Goals")
          "* %?\n %i")
         ("d" "Review: Daily Review" entry (file+olp+datetree "/tmp/reviews.org")
          (file "~/notes/templates/dailyreviewtemplate.org"))
@@ -162,10 +164,8 @@ typical word processor."
          (file "~/notes/templates/weeklyreviewtemplate.org"))
         ("m" "Review: Monthly Review" entry (file+olp+datetree "/tmp/reviews.org")
          (file "~/notes/templates/monthlyreviewtemplate.org"))
-        ("j" "Journal" entry (file+datetree ,(concat org-directory "journal.org"))
+        ("j" "Journal" entry (file+olp+datetree ,(concat org-directory "journal.org"))
          "* %U - %^{heading}\n %?")))
-
-;; (f-touch "/tmp/reviews.org")
 
 ;; ####
 
@@ -242,7 +242,8 @@ typical word processor."
                       ("read" . ?r)
                       ("study" . ?s)
                       ("watch" . ?t)
-                      ("emacs" . ?e)))
+                      ("emacs" . ?e)
+                      ("baby" . ?b)))
 
 ;; effort estimate
 ;; (setq org-columns-default-format "%38ITEM(Details) %TAGS(Context) %7TODO(To Do) %5Effort(Time){:} %6CLOCKSUM{Total}")
