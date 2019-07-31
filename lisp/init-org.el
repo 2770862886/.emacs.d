@@ -202,7 +202,7 @@ typical word processor."
     (org-agenda-refile goto rfloc no-update)))
 
 ;; Targets start with the file name - allows creating level 1 tasks
-;;(setq org-refile-use-outline-path (quote file))
+;; (setq org-refile-use-outline-path (quote file))
 (setq org-refile-use-outline-path t)
 (setq org-outline-path-complete-in-steps nil)
 
@@ -260,7 +260,7 @@ typical word processor."
 (let ((active-project-match "-INBOX/PROJECT"))
 
   (setq org-stuck-projects
-        `(,active-project-match ("NEXT")))
+        `(,active-project-match ("STARTED")))
 
   (setq org-agenda-compact-blocks t
         org-agenda-sticky t
@@ -402,8 +402,6 @@ typical word processor."
 (setq org-archive-mark-done nil)
 (setq org-archive-location "%s_archive::* Archive")
 
-
-
 
 
 (require-package 'org-pomodoro)
@@ -479,7 +477,8 @@ typical word processor."
             "~/CloudStation/Org/goals.org"))
 
 (setq org-agenda-text-search-extra-files
-      (list "~/CloudStation/Org/somedaymaybe.org"))
+      (list "~/CloudStation/Org/somedaymaybe.org"
+            "~/notes/note.org"))
 
 ;; #### Add global function for org interactive function
 (defun inbox ()
