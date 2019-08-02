@@ -6,7 +6,6 @@
 
 (use-package hydra)
 
-(use-package helm)
 
 (require-package 'helm-lsp)
 
@@ -63,9 +62,9 @@
           ("b" pop-tag-mark "Back")))
   ;; Create general hydra.
   (eval `(defhydra netrom/lsp-hydra (:color blue :hint nil)
-           ,@ (append
-               netrom--general-lsp-hydra-heads
-               netrom--misc-lsp-hydra-heads)))
+           ,@(append
+              netrom--general-lsp-hydra-heads
+              netrom--misc-lsp-hydra-heads)))
   (add-hook 'lsp-mode-hook
             (lambda () (local-set-key (kbd "C-c C-l") 'netrom/lsp-hydra/body))))
 
@@ -80,6 +79,8 @@
   (setq company-transformers nil
         company-lsp-async t
         company-lsp-cache-candidates nil))
+
+(require-package 'lsp-ui)
 
 (use-package lsp-ui
   :requires lsp-mode flycheck
@@ -98,8 +99,6 @@
         lsp-ui-peek-peek-height 25)
 
   (add-hook 'lsp-mode-hook 'lsp-ui-mode))
-
-(message "test aaa")
 
 (provide 'init-clang)
 ;;; init-clang.el ends here

@@ -441,5 +441,10 @@ ORIG is the advised function, which is called with its ARGS."
 (global-set-key (kbd "C-c o") 'switch-to-minibuffer)
 ;; ####
 
+;; #### define keybinding for toggle whitespace mode
+;; by liangchao 2019.8.2
+(global-set-key (kbd "C-c w") 'whitespace-mode)
+;; ####
+
 (provide 'init-editing-utils)
 ;;; init-editing-utils.el ends here
