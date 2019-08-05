@@ -154,7 +154,7 @@ typical word processor."
          "* %?\n %i")
         ("y" "Maybe" entry (file+headline ,(concat org-directory "somedaymaybe.org") "Maybe")
          "* %?\n %i")
-        ("n" "Note" entry (file+olp+datetree, "~/notes/note.org")
+        ("n" "Note" entry (file+olp+datetree, "~/CloudStation/Org/note.org")
          "* %?\n %i")
         ("g" "Goal" entry (file+headline ,(concat org-directory "goals.org") "Goals")
          "* %?\n %i")
@@ -478,7 +478,7 @@ typical word processor."
 
 (setq org-agenda-text-search-extra-files
       (list "~/CloudStation/Org/somedaymaybe.org"
-            "~/notes/note.org"))
+            "~/CloudStation/Org/note.org"))
 
 ;; #### Add global function for org interactive function
 (defun inbox ()
@@ -500,7 +500,7 @@ typical word processor."
 (defun note ()
   "Used to open note, which is not belong to todos and work."
   (interactive)
-  (find-file "~/notes/note.org"))
+  (find-file "~/CloudStation/Org/note.org"))
 ;; ####
 
 (provide 'init-org)
