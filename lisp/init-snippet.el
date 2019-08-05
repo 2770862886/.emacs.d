@@ -35,8 +35,11 @@
 (require-package 'yankpad)
 
 (use-package yankpad
+  :ensure t
   :init
   (setq yankpad-file "~/.emacs.d/org/yankpad.org")
+  (bind-key "<f7>" 'yankpad-map)
+  (bind-key "<f12>" 'yankpad-expand)
   (bind-keys :prefix-map yankmap
              :prefix "C-c y"
              ("c" . yankpad-set-category)
@@ -44,7 +47,10 @@
              ("i" . yankpad-insert)
              ("m" . yankpad-map)
              ("r" . yankpad-reload)
-             ("x" . yankpad-expand)))
+             ("x" . yankpad-expand))
+  :config
+  ;; If you want to complete snippets using company-mode
+  (add-to-list 'company-backends #'company-yankpad))
 
 (provide 'init-snippet)
 ;;; init-snippet ends here
