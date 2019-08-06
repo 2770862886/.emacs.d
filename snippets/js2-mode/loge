@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: logger.e
-# key: lge
-# --
-logger.e("$0");

@@ -12,8 +12,7 @@
   (add-hook 'after-init-hook 'global-company-mode)
   (after-load 'company
     (dolist (backend '(company-eclim company-semantic))
-      ;;(delq backend company-backends)
-      )
+      (delq backend company-backends))
     (diminish 'company-mode)
     (define-key company-mode-map (kbd "M-/") 'company-complete)
     (define-key company-active-map (kbd "M-/") 'company-other-backend)

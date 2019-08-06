@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: logger.i
-# key: lgi
-# --
-logger.i("$0");

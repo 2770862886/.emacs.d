@@ -36,10 +36,9 @@
 
 (use-package yankpad
   :ensure t
+  :defer 10
   :init
   (setq yankpad-file "~/.emacs.d/org/yankpad.org")
-  (bind-key "<f7>" 'yankpad-map)
-  (bind-key "<f12>" 'yankpad-expand)
   (bind-keys :prefix-map yankmap
              :prefix "C-c y"
              ("c" . yankpad-set-category)
