@@ -154,7 +154,7 @@ typical word processor."
          "* %?\n %i")
         ("y" "Maybe" entry (file+headline ,(concat org-directory "somedaymaybe.org") "Maybe")
          "* %?\n %i")
-        ("n" "Note" entry (file+olp+datetree, "~/CloudStation/Org/note.org")
+        ("n" "Note" entry (file+olp+datetree ,(concat org-directory "note.org"))
          "* %?\n %i")
         ("g" "Goal" entry (file+headline ,(concat org-directory "goals.org") "Goals")
          "* %?\n %i")
@@ -471,36 +471,36 @@ typical word processor."
 ;; #### GTD & Notes configuration
 ;; by liangchao, 2019.7.9
 (setq org-agenda-files
-      (list "~/CloudStation/Org/inbox.org"
-            "~/CloudStation/Org/task.org"
-            "~/CloudStation/Org/agendas.org"
-            "~/CloudStation/Org/goals.org"))
+      (list (concat org-directory "inbox.org")
+            (concat org-directory "task.org")
+            (concat org-directory "agenda.org")
+            (concat org-directory "goals.org")))
 
 (setq org-agenda-text-search-extra-files
-      (list "~/CloudStation/Org/somedaymaybe.org"
-            "~/CloudStation/Org/note.org"))
+      (list (concat org-directory "somedaymaybe.org")
+            (concat org-directory "note.org")))
 
 ;; #### Add global function for org interactive function
 (defun inbox ()
   "Used to open inbox org file."
   (interactive)
-  (find-file "~/CloudStation/Org/inbox.org"))
+  (find-file (concat org-directory "inbox.org")))
 
 ;; by liangchao, 2018.2.28
 (defun todo ()
   "Used to open todos org file."
   (interactive)
-  (find-file "~/CloudStation/Org/task.org"))
+  (find-file (concat org-directory "task.org")))
 
 (defun work ()
   "Used to open work related org file, which is add to gitignore."
   (interactive)
-  (find-file "~/CloudStation/Org/work.org"))
+  (find-file (concat org-directory "work.org")))
 
 (defun note ()
   "Used to open note, which is not belong to todos and work."
   (interactive)
-  (find-file "~/CloudStation/Org/note.org"))
+  (find-file (concat org-directory "note.org")))
 ;; ####
 
 (provide 'init-org)
