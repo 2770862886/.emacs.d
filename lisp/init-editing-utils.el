@@ -363,11 +363,17 @@ With arg N, insert N newlines."
 (add-hook 'after-init-hook 'hes-mode)
 
 
-(require-package 'guide-key)
-(setq guide-key/guide-key-sequence t)
-(add-hook 'after-init-hook 'guide-key-mode)
-(after-load 'guide-key
-  (diminish 'guide-key-mode))
+
+;; #### use which-key instead of guide-key
+;; by liangchao 2019.8.16
+(require-package 'which-key)
+(setq which-key-show-early-on-C-h t)
+(setq which-key-idle-delay 10000)
+(setq which-key-idle-secondary-delay 0.05)
+(add-hook 'after-init-hook 'which-key-mode)
+(after-load 'which-key
+  (diminish 'which-key-mode))
+;; ####
 
 
 (defun sanityinc/disable-features-during-macro-call (orig &rest args)

@@ -5,31 +5,39 @@
    $0
    #+END_SRC
 
+** prop: property snippet
+   :PROPERTIES:
+   :INCLUDE: $1
+   :END:
+   $0
+
 * js2-mode
 
-** Snippets for require                                                         :snippetlist:
+** require snippets                                                             :snippetlist:
    - rp :: const Page = require("yunos/page/Page");
    - rv :: const View = require("yunos/ui/view/View");
    - rcv :: const CompositeView = require("yunos/ui/view/CompositeView");
-   - rrl :: const RelativeLayout = require("yunos/ui/layout/RelativeLayout");
-   - rsc :: const Screen = require("yunos/device/Screen").getInstance();
+   - rlr :: const RelativeLayout = require("yunos/ui/layout/RelativeLayout");
+   - rs :: const Screen = require("yunos/device/Screen").getInstance();
+   - rr :: const Resource = require("yunos/content/resource/Resource").getInstance();
    - rlog :: const logger = log("$0");
 
 ** if: if clause
     if ($1) {
         $2
-    }
+    } $3
     $0
 
 ** el: else clause
    else {
-       $0
+       $1
    }
+   $0
 
 ** elif: else if clause
    else if ($1) {
        $2
-   }
+   } $3
    $0
 
 ** getWindowConfig: default getWindowConfig impl
@@ -72,6 +80,26 @@
        logger.E("error occurred: ", e.toString());
    }
    $0
+
+** lge: log error
+   logger.E("$1");$0
+
+** lgw: log warning
+   logger.W("$1");$0
+
+** lgi: log info
+   logger.I("$1");$0
+
+** lgd: log debug
+   logger.D("$1");$0
+
+** lgv: log verbose
+   logger.V("$1");$0
+
+* web-mode
+  :PROPERTIES:
+  :INCLUDE: js2-mode
+  :END:
 
 * Default                                           :global:
 ** bugid: Commit comment
