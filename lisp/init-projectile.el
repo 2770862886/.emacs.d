@@ -6,7 +6,8 @@
   (add-hook 'after-init-hook 'projectile-mode)
 
   ;; Shorter modeline
-  (setq-default projectile-mode-line-prefix " Proj")
+  ;; (setq-default projectile-mode-line-prefix " Proj")
+  (setq projectile-mode-line "Proj")
 
   (after-load 'projectile
     (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))

@@ -16,6 +16,8 @@
 ** require snippets                                                             :snippetlist:
    - rp :: const Page = require("yunos/page/Page");
    - rv :: const View = require("yunos/ui/view/View");
+   - ri :: const ImageView = require("yunos/ui/view/ImageView");
+   - rt :: const TextView = require("yunos/ui/view/TextView");
    - rcv :: const CompositeView = require("yunos/ui/view/CompositeView");
    - rlr :: const RelativeLayout = require("yunos/ui/layout/RelativeLayout");
    - rs :: const Screen = require("yunos/device/Screen").getInstance();

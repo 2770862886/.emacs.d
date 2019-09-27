@@ -209,3 +209,4 @@
 ;; End:
 ;;; init.el ends here
 (put 'set-goal-column 'disabled nil)
+(put 'magit-diff-edit-hunk-commit 'disabled nil)

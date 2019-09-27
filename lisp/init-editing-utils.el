@@ -452,5 +452,15 @@ ORIG is the advised function, which is called with its ARGS."
 (global-set-key (kbd "C-c w") 'whitespace-mode)
 ;; ####
 
+;; #### speed up
+(setq remote-file-name-inhibit-cache nil)
+(setq vc-ignore-dir-regexp
+      (format "%s\\|%s"
+              vc-ignore-dir-regexp
+              tramp-file-name-regexp))
+(setq tramp-verbose 1)
+;;
+
+
 (provide 'init-editing-utils)
 ;;; init-editing-utils.el ends here
