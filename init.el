@@ -154,6 +154,7 @@
 (require 'init-term)
 (require 'init-octave)
 (require 'init-plantuml)
+(require 'init-cmake)
 ;; ####
 ;; Extra packages which don't require any configuration
 

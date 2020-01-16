@@ -116,13 +116,14 @@
 ;; #### initialize doom-modeline-mode
 ;; by liangchao, 2019.7.8
 ;; (require-package 'spaceline-all-the-icons)
-(use-package spaceline-all-the-icons
-  :ensure t
-  :config
-  (spaceline-all-the-icons-theme)
-  (spaceline-helm-mode t)
-  (spaceline-info-mode t)
-  (setq spaceline-all-the-icons-separator-type 'arrow))
+
+;; (use-package spaceline-all-the-icons
+;;   :ensure t
+;;   :config
+;;   (spaceline-all-the-icons-theme)
+;;   (spaceline-helm-mode t)
+;;   (spaceline-info-mode t)
+;;   (setq spaceline-all-the-icons-separator-type 'arrow))
 ;; ####
 
 (provide 'init-gui-frames)

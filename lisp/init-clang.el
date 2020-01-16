@@ -26,6 +26,7 @@
 (use-package lsp-mode
   :requires hydra helm helm-lsp
   :config
+  (add-hook 'c-mode-hook #'lsp)
   (add-hook 'c++-mode-hook #'lsp)
   (add-hook 'python-mode-hook #'lsp)
   (add-hook 'rust-mode-hook #'lsp)
@@ -66,7 +67,7 @@
               netrom--general-lsp-hydra-heads
               netrom--misc-lsp-hydra-heads)))
   (add-hook 'lsp-mode-hook
-            (lambda () (local-set-key (kbd "C-c C-l") 'netrom/lsp-hydra/body))))
+            (lambda () (local-set-key (kbd "C-c C-j") 'netrom/lsp-hydra/body))))
 
 (require-package 'company-lsp)
 
