@@ -142,6 +142,7 @@
   (after-load 'symbol-overlay
     (diminish 'symbol-overlay-mode)
     (define-key symbol-overlay-mode-map (kbd "M-i") 'symbol-overlay-put)
+    (define-key symbol-overlay-mode-map (kbd "M-I") 'symbol-overlay-remove-all)
     (define-key symbol-overlay-mode-map (kbd "M-n") 'symbol-overlay-jump-next)
     (define-key symbol-overlay-mode-map (kbd "M-p") 'symbol-overlay-jump-prev)))
 
@@ -255,8 +256,9 @@
 (require-package 'move-dup)
 (global-set-key [M-up] 'md-move-lines-up)
 (global-set-key [M-down] 'md-move-lines-down)
-;; (global-set-key [M-S-up] 'md/move-lines-up)
-;; (global-set-key [M-S-down] 'md/move-lines-down)
+;; (global-set-key [M-S-up] 'md-move-lines-up)
+;; (global-set-key [M-S-down] 'md-move-lines-down)
+
 (global-set-key (kbd "C-c d") 'md-duplicate-down)
 (global-set-key (kbd "C-c u") 'md-duplicate-up)
 ;; ####

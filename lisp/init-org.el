@@ -22,9 +22,6 @@
 
 ;;; Code:
 
-(add-to-list 'load-path "~/.emacs.d/site-lisp/org-mode/lisp")
-(add-to-list 'load-path "~/.emacs.d/site-lisp/org-mode/contrib")
-
 (when *is-a-mac*
   (maybe-require-package 'grab-mac-link))
 
@@ -32,6 +29,16 @@
 
 (define-key global-map (kbd "C-c l") 'org-store-link)
 (define-key global-map (kbd "C-c a") 'org-agenda)
+
+(defvar sanityinc/org-global-prefix-map (make-sparse-keymap)
+  "A keymap for handy global access to org helpers, particularly clocking.")
+
+(define-key sanityinc/org-global-prefix-map (kbd "j") 'org-clock-jump-to-current-clock)
+(define-key sanityinc/org-global-prefix-map (kbd "l") 'org-clock-in-last)
+(define-key sanityinc/org-global-prefix-map (kbd "i") 'org-clock-in)
+(define-key sanityinc/org-global-prefix-map (kbd "o") 'org-clock-out)
+(define-key global-map (kbd "C-c o") sanityinc/org-global-prefix-map)
+
 
 ;; Various preferences
 (setq org-log-done t
@@ -42,9 +49,7 @@
       org-fast-tag-selection-single-key 'expert
       org-html-validation-link nil
       org-export-kill-product-buffer-when-displayed t
-      org-tags-column 80
-      org-use-fast-todo-selection t
-      org-treat-S-cursor-todo-selection-as-state-change nil)
+      org-tags-column 80)
 
 
 ;; Lots of stuff from http://doc.norang.ca/org-mode.html
@@ -129,7 +134,7 @@ typical word processor."
     (when (fboundp 'writeroom-mode)
       (writeroom-mode 0))))
 
-(add-hook 'org-mode-hook 'buffer-face-mode)
+;;(add-hook 'org-mode-hook 'buffer-face-mode)
 
 
 (setq org-support-shift-select t)
@@ -401,6 +406,8 @@ typical word processor."
 
 (setq org-archive-mark-done nil)
 (setq org-archive-location "%s_archive::* Archive")
+
+
 
 
 

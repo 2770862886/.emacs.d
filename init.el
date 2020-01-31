@@ -172,6 +172,8 @@
   (setq-default uptimes-keep-count 200)
   (add-hook 'after-init-hook (lambda () (require 'uptimes))))
 
+(when (fboundp 'global-eldoc-mode)
+  (add-hook 'after-init-hook 'global-eldoc-mode))
 
 ;;----------------------------------------------------------------------------
 ;; Allow access from emacsclient
@@ -209,5 +211,3 @@
 ;; no-byte-compile: t
 ;; End:
 ;;; init.el ends here
-(put 'set-goal-column 'disabled nil)
-(put 'magit-diff-edit-hunk-commit 'disabled nil)

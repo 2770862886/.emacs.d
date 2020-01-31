@@ -41,5 +41,7 @@
     (add-hook 'company-completion-started-hook 'sanityinc/page-break-lines-disable)
     (add-hook 'company-after-completion-hook 'sanityinc/page-break-lines-maybe-reenable)))
 
+
+
 (provide 'init-company)
 ;;; init-company.el ends here

@@ -8,7 +8,6 @@
 *.elc
 CVS
 .svn
-.lsp-session-*
 *~
 .cvsignore
 .*.lock

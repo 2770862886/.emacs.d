@@ -6,7 +6,6 @@
 ;; Stop C-z from minimizing windows under OS X
 ;;----------------------------------------------------------------------------
 (defun sanityinc/maybe-suspend-frame ()
-  "Maybe suspend frame for Ctrl-z."
   (interactive)
   (unless (and *is-a-mac* window-system)
     (suspend-frame)))
@@ -85,11 +84,14 @@
           (lambda ()
             (setq line-spacing 0)))
 
+
 ;; Change global font size easily
 
 (require-package 'default-text-scale)
 (add-hook 'after-init-hook 'default-text-scale-mode)
 
+
+
 (require-package 'disable-mouse)
 
 ;; #### use winum-mode
