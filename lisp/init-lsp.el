@@ -1,4 +1,4 @@
-;;; init-clang.el --- Support for clang and derivatives -*- lexical-binding: t -*-
+;;; init-lsp.el --- Support for lsp and derivatives -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
 
@@ -101,5 +101,5 @@
 
   (add-hook 'lsp-mode-hook 'lsp-ui-mode))
 
-(provide 'init-clang)
-;;; init-clang.el ends here
+(provide 'init-lsp)
+;;; init-lsp.el ends here

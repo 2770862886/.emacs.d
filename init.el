@@ -147,7 +147,7 @@
 ;; by liangchao, 2018.8.2
 (require 'init-helm)
 (require 'init-snippet)
-(require 'init-clang)
+(require 'init-lsp)
 (require 'init-golang)
 (require 'init-scheme)
 (require 'init-gnus)
