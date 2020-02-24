@@ -404,13 +404,15 @@ ORIG is the advised function, which is called with its ARGS."
 (global-set-key (kbd "C--") 'text-scale-decrease)
 ;; make change within the el file functional
 (global-set-key (kbd "C-x e") 'eval-buffer)
-;; (global-set-key (kbd "C-c e") 'eval-buffer)
+(global-set-key (kbd "C-c e") 'eval-buffer)
 ;; prompt to change the code system of current buffer
 (global-set-key (kbd "C-c k") 'revert-buffer-with-coding-system)
 ;; prompt to change the name of current buffer
 (global-set-key (kbd "C-c r") 'rename-buffer)
 ;; clear the white space in the buffer
 (global-set-key (kbd "C-c n") 'prelude-cleanup-buffer)
+;; reset file to the version on the disk
+(global-set-key (kbd "C-c b") 'revert-buffer)
 ;; ####
 
 ;; #### Add hotkey for find and grep command
@@ -446,7 +448,7 @@ ORIG is the advised function, which is called with its ARGS."
       (select-window (active-minibuffer-window))
     (error "Minibuffer is not active")))
 
-(global-set-key (kbd "C-c o") 'switch-to-minibuffer)
+(global-set-key (kbd "C-c C-o") 'switch-to-minibuffer)
 ;; ####
 
 ;; #### define keybinding for toggle whitespace mode
@@ -461,8 +463,26 @@ ORIG is the advised function, which is called with its ARGS."
               vc-ignore-dir-regexp
               tramp-file-name-regexp))
 (setq tramp-verbose 1)
+;; #### Fix tramp hangup with zsh in remote
+(setq tramp-shell-prompt-pattern "^[^$>\n]*[#$%>] *\\(\[[0-9;]*[a-zA-Z] *\\)*")
 ;;
 
+;; ####
+(let ((bookmarkplus-dir "~/.emacs.d/site-lisp/bookmark-plus/")
+      (emacswiki-base "https://www.emacswiki.org/emacs/download/")
+      (bookmark-files '("bookmark+.el" "bookmark+-mac.el" "bookmark+-bmu.el" "bookmark+-key.el" "bookmark+-lit.el" "bookmark+-1.el")))
+  (require 'url)
+  (add-to-list 'load-path bookmarkplus-dir)
+  (make-directory bookmarkplus-dir t)
+  (mapcar (lambda (arg)
+            (let ((local-file (concat bookmarkplus-dir arg)))
+              (unless (file-exists-p local-file)
+                (url-copy-file (concat emacswiki-base arg) local-file t))))
+          bookmark-files)
+  (byte-recompile-directory bookmarkplus-dir 0)
+  (require 'bookmark+))
+(global-set-key (kbd "C-x r b") 'helm-bookmarks)
+;; ####
 
 (provide 'init-editing-utils)
 ;;; init-editing-utils.el ends here
