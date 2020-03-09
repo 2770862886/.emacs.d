@@ -115,18 +115,11 @@
 (winum-mode)
 ;; ####
 
-;; #### initialize doom-modeline-mode
-;; by liangchao, 2019.7.8
-;; (require-package 'spaceline-all-the-icons)
-
-;; (use-package spaceline-all-the-icons
-;;   :ensure t
-;;   :config
-;;   (spaceline-all-the-icons-theme)
-;;   (spaceline-helm-mode t)
-;;   (spaceline-info-mode t)
-;;   (setq spaceline-all-the-icons-separator-type 'arrow))
-;; ####
+;; #### initialize doom-modeline
+;; by liangchao, 2020.3.9
+(use-package doom-modeline
+  :ensure t
+  :init (doom-modeline-mode 1))
 
 (provide 'init-gui-frames)
 ;;; init-gui-frames.el ends here

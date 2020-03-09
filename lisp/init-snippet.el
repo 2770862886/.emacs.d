@@ -32,8 +32,6 @@
 
 (setq yas-prompt-functions '(yas-popup-isearch-prompt yas-ido-prompt yas-no-prompt))
 
-(require-package 'yankpad)
-
 (use-package yankpad
   :ensure t
   :defer 10

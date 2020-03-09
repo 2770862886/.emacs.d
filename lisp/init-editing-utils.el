@@ -467,7 +467,8 @@ ORIG is the advised function, which is called with its ARGS."
 (setq tramp-shell-prompt-pattern "^[^$>\n]*[#$%>] *\\(\[[0-9;]*[a-zA-Z] *\\)*")
 ;;
 
-;; ####
+;; #### add config for bookmark+
+;; by liangchao 2020.2.26
 (let ((bookmarkplus-dir "~/.emacs.d/site-lisp/bookmark-plus/")
       (emacswiki-base "https://www.emacswiki.org/emacs/download/")
       (bookmark-files '("bookmark+.el" "bookmark+-mac.el" "bookmark+-bmu.el" "bookmark+-key.el" "bookmark+-lit.el" "bookmark+-1.el")))
@@ -482,6 +483,16 @@ ORIG is the advised function, which is called with its ARGS."
   (byte-recompile-directory bookmarkplus-dir 0)
   (require 'bookmark+))
 (global-set-key (kbd "C-x r b") 'helm-bookmarks)
+;; ####
+
+;; #### add undo-tree
+;; by liangchao 2020.2.26
+(when (maybe-require-package 'undo-tree)
+  (global-undo-tree-mode)
+  (after-load 'undo-tree
+    (custom-set-variables '(undo-tree-visualizer-diff t)
+                          '(undo-tree-visualizer-timestamps t))))
+
 ;; ####
 
 (provide 'init-editing-utils)

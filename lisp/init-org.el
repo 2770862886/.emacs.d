@@ -151,7 +151,9 @@ typical word processor."
 (setq org-reverse-note-order t)
 
 (setq org-capture-templates
-      `(("t" "Task" entry (file+headline ,(concat org-directory "task.org") "Tasks")
+      `(("i" "Inbox" entry (file+headline ,(concat org-directory "inbox.org") "Inbox")
+         "* TODO %?\n %i")
+        ("t" "Task" entry (file+headline ,(concat org-directory "task.org") "Tasks")
          "* TODO %?\n %i")
         ("p" "Project" entry (file+headline ,(concat org-directory "task.org") "Projects")
          (file "~/notes/templates/newprojecttemplate.org"))

@@ -2,14 +2,11 @@
 ;;; Commentary:
 ;;; Code:
 
-(require-package 'hydra)
-
-(use-package hydra)
-
-
-(require-package 'helm-lsp)
+(use-package hydra
+  :ensure t)
 
 (use-package helm-lsp
+  :ensure t
   :config
   (defun netrom/helm-lsp-workspace-symbol-at-point ()
     (interactive)
@@ -21,9 +18,8 @@
     (let ((current-prefix-arg t))
       (call-interactively #'helm-lsp-global-workspace-symbol))))
 
-(require-package 'lsp-mode)
-
 (use-package lsp-mode
+  :ensure t
   :requires hydra helm helm-lsp
   :config
   (add-hook 'c-mode-hook #'lsp)
@@ -69,9 +65,8 @@
   (add-hook 'lsp-mode-hook
             (lambda () (local-set-key (kbd "C-c C-j") 'netrom/lsp-hydra/body))))
 
-(require-package 'company-lsp)
-
 (use-package company-lsp
+  :ensure t
   :requires company
   :config
   (push 'company-lsp company-backends)
@@ -81,9 +76,8 @@
         company-lsp-async t
         company-lsp-cache-candidates nil))
 
-(require-package 'lsp-ui)
-
 (use-package lsp-ui
+  :ensure t
   :requires lsp-mode flycheck
   :config
 
@@ -100,6 +94,13 @@
         lsp-ui-peek-peek-height 25)
 
   (add-hook 'lsp-mode-hook 'lsp-ui-mode))
+
+;; With use-package:
+;; (require-package 'company-box)
+;; (use-package company-box
+;;   :hook (company-mode . company-box-mode))
+
+;; (require-package 'eglot)
 
 (provide 'init-lsp)
 ;;; init-lsp.el ends here
