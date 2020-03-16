@@ -111,15 +111,19 @@
         (define-key map (kbd "M-8") 'winum-select-window-8)
         map))
 
-(require-package 'winum)
-(winum-mode)
+(use-package winum
+  :ensure t
+  :init (winum-mode))
 ;; ####
 
 ;; #### initialize doom-modeline
 ;; by liangchao, 2020.3.9
 (use-package doom-modeline
   :ensure t
-  :init (doom-modeline-mode 1))
+  :init (doom-modeline-mode 1)
+  :config
+  (setq doom-modeline-bar-width 3))
+;; ####
 
 (provide 'init-gui-frames)
 ;;; init-gui-frames.el ends here
