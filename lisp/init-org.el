@@ -244,13 +244,15 @@ typical word processor."
                       ("phone" . ?p)
                       ("xbox" . ?x)
                       (:endgroup . nil)
-                      ("work" . ?w)
+                      ("baby" . ?b)
+                      ("download" . ?d)
+                      ("emacs" . ?e)
                       ("play" . ?y)
                       ("read" . ?r)
                       ("study" . ?s)
                       ("watch" . ?t)
-                      ("emacs" . ?e)
-                      ("baby" . ?b)))
+                      ("work" . ?w)
+                      ))
 
 ;; effort estimate
 ;; (setq org-columns-default-format "%38ITEM(Details) %TAGS(Context) %7TODO(To Do) %5Effort(Time){:} %6CLOCKSUM{Total}")

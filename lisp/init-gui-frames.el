@@ -99,7 +99,6 @@
 (setq winum-keymap
       (let ((map (make-sparse-keymap)))
         (define-key map (kbd "C-`") 'winum-select-window-by-number)
-        (define-key map (kbd "C-²") 'winum-select-window-by-number)
         (define-key map (kbd "M-0") 'winum-select-window-0-or-10)
         (define-key map (kbd "M-1") 'winum-select-window-1)
         (define-key map (kbd "M-2") 'winum-select-window-2)
@@ -120,9 +119,7 @@
 ;; by liangchao, 2020.3.9
 (use-package doom-modeline
   :ensure t
-  :init (doom-modeline-mode 1)
-  :config
-  (setq doom-modeline-bar-width 3))
+  :hook (after-init . doom-modeline-mode))
 ;; ####
 
 (provide 'init-gui-frames)

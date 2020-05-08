@@ -9,10 +9,10 @@
 ;; (add-to-list 'auto-mode-alist '("\\.plantuml\\'" . plantuml-mode))
 
 (setq org-plantuml-jar-path
-      (expand-file-name "~/.emacs.d/plantuml.jar"))
+      (expand-file-name "~/.emacs.d/bin/plantuml.jar"))
 
 (setq plantuml-jar-path
-      (expand-file-name "~/.emacs.d/plantuml.jar"))
+      (expand-file-name "~/.emacs.d/bin/plantuml.jar"))
 
 ;; #+BEGIN_SRC plantuml
 ;; <hit C-c ' here to open a plantuml-mode buffer>

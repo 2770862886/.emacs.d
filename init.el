@@ -99,8 +99,7 @@
 (require 'init-markdown)
 (require 'init-csv)
 (require 'init-erlang)
-;;(require 'init-javascript)
-(require 'init-js)
+;; (require 'init-javascript)
 (require 'init-php)
 (require 'init-org)
 (require 'init-nxml)
@@ -155,6 +154,7 @@
 (require 'init-octave)
 (require 'init-plantuml)
 (require 'init-cmake)
+(require 'init-csharp)
 ;; ####
 ;; Extra packages which don't require any configuration
 
