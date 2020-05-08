@@ -24,6 +24,8 @@
  ediff-split-window-function 'split-window-horizontally
  ediff-window-setup-function 'ediff-setup-windows-plain
  indent-tabs-mode nil
+ create-lockfiles nil
+ auto-save-default nil
  make-backup-files nil
  mouse-yank-at-point t
  save-interprogram-paste-before-kill t
@@ -33,7 +35,6 @@
  truncate-lines nil
  truncate-partial-width-windows nil
  show-trailing-whitespace t
- auto-save-default nil
  c-basic-offset 4
  tab-width 4
  scroll-step 1
@@ -41,9 +42,9 @@
  scroll-conservatively 10000)
 
 ;; display line number in the left margin
-(global-linum-mode t)
+;;(global-linum-mode t)
 ;; display cursor position in the mode line
-(line-number-mode t)
+;;(line-number-mode t)
 (add-hook 'after-init-hook 'global-auto-revert-mode)
 (setq global-auto-revert-non-file-buffers t
       auto-revert-verbose nil)
@@ -110,12 +111,9 @@
 
 
 
-;; #### Fix displaying duplicate linenum view
-;; by liangchao, 2019.5.5
-;; (when (fboundp 'display-line-numbers-mode)
-;; (setq-default display-line-numbers-width 3)
-;; (add-hook 'prog-mode-hook 'display-line-numbers-mode)))
-;; ####
+(when (fboundp 'display-line-numbers-mode)
+  (setq-default display-line-numbers-width 3)
+  (add-hook 'prog-mode-hook 'display-line-numbers-mode))
 
 (when (maybe-require-package 'goto-line-preview)
   (global-set-key [remap goto-line] 'goto-line-preview)
