@@ -80,6 +80,11 @@ instead."
 (when (maybe-require-package 'ivy-xref)
   (setq xref-show-xrefs-function 'ivy-xref-show-xrefs))
 
+;; #### keybinding for convenient
+;; by liangchao 2020.05.12
+(global-set-key (kbd "C-x C-m") 'counsel-M-x)
+(global-set-key (kbd "M-y") 'counsel-yank-pop)
+;; ####
 
 (provide 'init-ivy)
 ;;; init-ivy.el ends here
