@@ -100,6 +100,12 @@
 ;;   :config
 ;;   (setq lsp-lua-emmy-jar-path (expand-file-name "EmmyLua-LS-all.jar" user-emacs-directory)))
 
+(use-package company-lsp
+  :ensure t
+  :commands company-lsp
+  :config
+  (push '(company-lsp :with company-yasnippet) company-backends))
+
 (defun set-company-backends-for-lua ()
   "Set lua company backend."
   (setq-local company-backends '(
