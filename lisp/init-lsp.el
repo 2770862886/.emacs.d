@@ -93,13 +93,6 @@
 (setq company-minimum-prefix-length 1
       company-idle-delay 0.2) ;; default is 0.2
 
-;; (use-package lsp-lua-emmy
-;;   :demand
-;;   :ensure nil
-;;   :load-path "~/.emacs.d/bin/"
-;;   :config
-;;   (setq lsp-lua-emmy-jar-path (expand-file-name "EmmyLua-LS-all.jar" user-emacs-directory)))
-
 (use-package company-lsp
   :ensure t
   :commands company-lsp
@@ -108,16 +101,12 @@
 
 (defun set-company-backends-for-lua ()
   "Set lua company backend."
-  (setq-local company-backends '(
-                                 (
-                                  company-lsp
+  (setq-local company-backends '((company-lsp
                                   company-lua
                                   company-keywords
                                   company-gtags
-                                  company-yasnippet)
-                                 company-capf
-                                 company-dabbrev-code
-                                 company-files)))
+                                  company-dabbrev-code
+                                  company-yasnippet))))
 
 (use-package lua-mode
   :ensure t
