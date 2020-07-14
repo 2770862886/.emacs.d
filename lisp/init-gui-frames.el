@@ -121,5 +121,18 @@
   :hook (after-init . doom-modeline-mode))
 ;; ####
 
+;; #### config FIXED-WIDTH font.
+;; by liangchao, 2020.7.14
+;; git clone https://github.com/rayshan/mplus-fonts.git
+(defun set-font (english chinese english-size chinese-size)
+  "Set the font for ENGLISH CHINESE ENGLISH-SIZE CHINESE-SIZE specifically."
+  (set-face-attribute 'default nil :font
+                      (format   "%s:pixelsize=%d"  english english-size))
+  (dolist (charset '(kana han symbol cjk-misc bopomofo))
+    (set-fontset-font (frame-parameter nil 'font) charset
+                      (font-spec :family chinese :size chinese-size))))
+(set-font   "M+ 1m" "M+ 1m" 14 14)
+;; ####
+
 (provide 'init-gui-frames)
 ;;; init-gui-frames.el ends here
